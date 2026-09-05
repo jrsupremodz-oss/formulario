@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Checkout - Oferta Exclusiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .product-radio:checked + div {
+            border-color: #ef4444; 
+            background-color: #fef2f2; 
+        }
+        
+        .pulse-text {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+
+        @keyframes sacudon {
+            0%, 100% { transform: translateX(0) scale(1); }
+            5% { transform: translateX(-4px) rotate(-1deg) scale(1.02); }
+            10% { transform: translateX(4px) rotate(1deg) scale(1.02); }
+            15% { transform: translateX(-4px) rotate(-1deg) scale(1.02); }
+            20% { transform: translateX(4px) rotate(1deg) scale(1.02); }
+            25% { transform: translateX(0) scale(1); }
+        }
+        .btn-sacudon {
+            animation: sacudon 4s infinite; 
+            transform-origin: center;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="py-6 px-4 md:py-10 flex justify-center min-h-screen">
+
+    <!-- Modal Downsell -->
+    <div id="downsellModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+        <div class="bg-gradient-to-br from-yellow-300 to-yellow-500 w-full max-w-sm rounded-3xl p-6 text-center shadow-2xl relative overflow-hidden transform scale-95 transition-transform duration-300" id="downsellContent">
+            <!-- Decoración -->
+            <div class="absolute top-0 left-0 w-24 h-24 bg-yellow-400 rounded-full opacity-60 -translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute bottom-10 right-0 w-28 h-28 bg-yellow-600 rounded-full opacity-20 translate-x-1/3"></div>
+            <div class="absolute top-1/4 right-4 w-6 h-6 bg-orange-500 rounded-full opacity-60"></div>
+            <div class="absolute bottom-1/4 left-4 w-8 h-8 bg-red-500 rounded-full opacity-60"></div>
+            
+            <h2 class="text-3xl font-black text-black mb-1 relative z-10">¡Espera!</h2>
+            <p class="text-black font-medium mb-4 relative z-10 text-sm leading-snug">¡Felicidades! ¡Acabas de desbloquear un descuento especial!</p>
+            <h3 class="text-lg font-bold text-black mb-6 relative z-10">Compra ahora, ¡obtén un descuento!</h3>
+            
+            <!-- Estrella de Descuento -->
+            <div class="relative w-40 h-40 mx-auto mb-6 flex items-center justify-center z-10">
+                <svg viewBox="0 0 100 100" class="absolute w-full h-full text-red-500 drop-shadow-xl" fill="url(#grad1)">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="50,0 61,15 79,11 83,28 100,34 94,50 100,66 83,72 79,89 61,85 50,100 39,85 21,89 17,72 0,66 6,50 0,34 17,28 21,11 39,15"></polygon>
+                </svg>
+                <div class="relative text-white font-black text-2xl z-20" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">$4.000,00</div>
+            </div>
+            
+            <div class="space-y-3 relative z-10">
+                <button type="button" id="btn-accept-discount" class="w-full bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white font-bold rounded-2xl py-3.5 px-4 shadow-lg active:scale-95 transition-transform text-sm sm:text-base">
+                    Completar pedido con $4.000,00 de DESCUENTO
+                </button>
+                <button type="button" id="btn-decline-discount" class="w-full bg-white text-black border-2 border-black font-bold rounded-2xl py-3 px-4 active:scale-95 transition-transform">
+                    No, gracias
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal del Formulario -->
+    <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl relative overflow-hidden">
+        
+        <button type="button" id="btn-cerrar-checkout" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl z-10 p-2">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="p-5 sm:p-6 pb-8">
+            <div class="text-center mb-6 pt-2">
+                <h1 class="text-xl font-extrabold text-black uppercase tracking-tight mb-2">
+                    POCAS UNIDADES DISPONIBLES! <span class="text-xl">🔥</span>
+                </h1>
+                <h2 class="text-base font-bold text-black uppercase">
+                    PAGA EN CASA / 50% DE<br>DESCUENTO <span class="text-xl">💥</span>
+                </h2>
+            </div>
+
+            <form id="checkoutForm">
+                
+                <div class="space-y-3 mb-6" id="product-selection">
+                    
+                    <!-- Opción 1 -->
+                    <label class="block cursor-pointer relative">
+                        <input type="radio" name="producto" value="1_par" class="product-radio peer sr-only" checked>
+                        <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
+                            <div class="flex items-center gap-3">
+                                <!-- 🔴 AQUÍ CAMBIAS LA IMAGEN 1 -->
+                                <img src="https://placehold.co/60x60/f87171/ffffff?text=Tu+Foto+1" alt="Opción 1" class="w-14 h-14 rounded-md object-cover shadow-sm">
+                                <div>
+                                    <!-- 🔴 AQUÍ CAMBIAS EL NOMBRE 1 -->
+                                    <h3 class="font-bold text-black text-lg leading-none mb-1">Nombre Producto 1</h3>
+                                    <span class="inline-block bg-gradient-to-r from-orange-400 to-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Oferta Exclusiva</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-bold text-black text-lg price-tag">$69.900,00</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Opción 2 -->
+                    <label class="block cursor-pointer relative">
+                        <input type="radio" name="producto" value="2_pares" class="product-radio peer sr-only">
+                        <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
+                            <div class="flex items-center gap-3">
+                                <!-- 🔴 AQUÍ CAMBIAS LA IMAGEN 2 -->
+                                <img src="https://placehold.co/60x60/f87171/ffffff?text=Tu+Foto+2" alt="Opción 2" class="w-14 h-14 rounded-md object-cover shadow-sm">
+                                <div>
+                                    <!-- 🔴 AQUÍ CAMBIAS EL NOMBRE 2 -->
+                                    <h3 class="font-bold text-black text-lg leading-none mb-1">Nombre Producto 2</h3>
+                                    <span class="inline-block bg-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Ahorra 20%</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs text-gray-400 line-through mb-0.5">$139.800,00</div>
+                                <div class="font-bold text-black text-lg price-tag">$111.840,00</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Opción 3 -->
+                    <label class="block cursor-pointer relative">
+                        <input type="radio" name="producto" value="3_pares" class="product-radio peer sr-only">
+                        <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
+                            <div class="flex items-center gap-3">
+                                <!-- 🔴 AQUÍ CAMBIAS LA IMAGEN 3 -->
+                                <img src="https://placehold.co/60x60/f87171/ffffff?text=Tu+Foto+3" alt="Opción 3" class="w-14 h-14 rounded-md object-cover shadow-sm">
+                                <div>
+                                    <!-- 🔴 AQUÍ CAMBIAS EL NOMBRE 3 -->
+                                    <h3 class="font-bold text-black text-lg leading-none mb-1">Nombre Producto 3</h3>
+                                    <span class="inline-block bg-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Ahorra 30%</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-xs text-gray-400 line-through mb-0.5">$209.700,00</div>
+                                <div class="font-bold text-black text-lg price-tag">$146.790,00</div>
+                            </div>
+                        </div>
+                    </label>
+
+                </div>
+
+                <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 mb-6">
+                    <div class="flex justify-between items-center mb-2 text-gray-700">
+                        <span class="text-sm">Subtotal</span>
+                        <span class="font-semibold" id="summary-subtotal">$69.900,00</span>
+                    </div>
+                    
+                    <div id="summary-discount-row" class="hidden justify-between items-center mb-2 text-red-500">
+                        <span class="text-sm font-bold flex items-center gap-1"><i class="fa-solid fa-gift"></i> Descuento Especial</span>
+                        <span class="font-bold">- $4.000,00</span>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-3 text-gray-700">
+                        <span class="text-sm">Envío</span>
+                        <span class="font-bold text-black">Gratis</span>
+                    </div>
+                    <hr class="border-gray-200 mb-3">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-black text-lg">Total</span>
+                        <span class="font-bold text-black text-xl" id="summary-total">$69.900,00</span>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="font-bold text-black mb-3 text-lg">Opciones de envío</h4>
+                    <label class="flex items-center justify-between border border-gray-200 rounded-xl p-3 bg-white cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <input type="radio" checked class="w-5 h-5 accent-black text-black bg-gray-100 border-gray-300 focus:ring-black">
+                            <span class="text-gray-700 font-medium">Envío gratis</span>
+                        </div>
+                        <span class="font-bold text-black">Gratis</span>
+                    </label>
+                </div>
+
+                <div class="space-y-4 mb-6">
+                    
+                    <!-- Nombre -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Nombre completo<span class="text-red-500">*</span></label>
+                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+                            <span class="inline-flex items-center px-4 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500 text-lg">
+                                <i class="fa-regular fa-circle-user"></i>
+                            </span>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Perez" 
+                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+                        </div>
+                    </div>
+
+                    <!-- Celular -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Celular con WhatsApp<span class="text-red-500">*</span></label>
+                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+                            <span class="inline-flex items-center px-4 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500 text-lg">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </span>
+                            <input type="tel" id="celular" name="celular" required placeholder="Ej. 300 000 00 00" 
+                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+                        </div>
+                    </div>
+
+                    <!-- Dirección -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Dirección<span class="text-red-500">*</span></label>
+                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+                            <span class="inline-flex items-center px-4 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <input type="text" id="direccion" name="direccion" required placeholder="Lo más específica posible" 
+                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+                        </div>
+                    </div>
+
+                    <!-- Referencia -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Barrio/Dpto/Calle/Av<span class="text-red-500">*</span></label>
+                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+                            <span class="inline-flex items-center px-4 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500 text-lg">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </span>
+                            <input type="text" id="referencia" name="referencia" required placeholder="Ingrese un punto de referencia" 
+                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+                        </div>
+                    </div>
+
+                    <!-- Departamento -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Departamento<span class="text-red-500">*</span></label>
+                        <div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+                            <select id="departamento" name="departamento" required class="block w-full px-4 py-3 sm:text-sm outline-none bg-transparent text-gray-900 font-medium appearance-none cursor-pointer">
+                                <option value="" disabled selected>Selecciona Departamento</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                <i class="fa-solid fa-chevron-down text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ciudad -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Ciudad / Municipio<span class="text-red-500">*</span></label>
+                        <div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+                            <select id="ciudad" name="ciudad" required disabled class="block w-full px-4 py-3 sm:text-sm outline-none bg-transparent text-gray-900 font-medium appearance-none cursor-pointer disabled:bg-gray-100 disabled:text-gray-400">
+                                <option value="" disabled selected>Primero selecciona un departamento</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                <i class="fa-solid fa-chevron-down text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="mb-6 flex items-start gap-3">
+                    <div class="flex items-center h-5 mt-1">
+                        <input id="compromiso" name="compromiso" type="checkbox" required
+                            class="w-5 h-5 text-black bg-white border-gray-300 rounded focus:ring-black focus:ring-2 cursor-pointer accent-black">
+                    </div>
+                    <div class="text-sm">
+                        <label for="compromiso" class="font-medium text-gray-700 cursor-pointer">Me Comprometo a recibir el producto.</label>
+                    </div>
+                </div>
+
+                <!-- Temporizador -->
+                <div class="bg-red-50 border border-red-100 rounded-xl p-4 text-center mb-6">
+                    <p class="text-red-500 font-bold text-lg mb-1 pulse-text">Date prisa, la oferta termina en</p>
+                    <div class="text-red-600 font-black text-3xl" id="countdown">10:00</div>
+                </div>
+
+                <!-- Botón Submit -->
+                <button type="submit" id="submitBtn" class="w-full bg-black hover:bg-gray-900 text-white rounded-[1.25rem] py-4 px-4 flex flex-col items-center justify-center transition-transform active:scale-95 shadow-lg btn-sacudon">
+                    <span class="font-black text-lg md:text-xl mb-0.5 tracking-tight uppercase" id="btn-text-price">COMPLETA TU COMPRA - $69.900,00</span>
+                    <span class="text-sm font-medium text-gray-300">Paga al recibir!</span>
+                </button>
+                
+                <div class="text-center mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 font-medium border-t border-gray-100 pt-4">
+                    <i class="fa-solid fa-shield-halved text-green-500"></i>
+                    <span>Compra 100% Segura. Pago Contra Entrega.</span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 🔴 CONFIGURACIÓN DE TU WHATSAPP 🔴
+        // ==========================================
+        const MI_NUMERO_WHATSAPP = "584120000000"; 
+        
+        // ==========================================
+        // 🔴 CONFIGURACIÓN DE GOOGLE SHEETS 🔴
+        // ==========================================
+        // Pega aquí la "URL de la aplicación web" que te dio Google Apps Script
+        const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyPGycc3dDWtIUBHeOFf3NQO_-LLMEaV3oIJRknTSdxuHPCsvaFW_BIP6md-f728nZ-/exec";
+        // ==========================================
+
+
+        // Base de datos de Departamentos y Ciudades de Colombia
+        const municipiosPorDepartamento = {
+            "Amazonas": ["Leticia", "Puerto Nariño", "Otra ciudad / municipio"],
+            "Antioquia": ["Medellín", "Bello", "Itagüí", "Envigado", "Rionegro", "Sabaneta", "Apartadó", "Caucasia", "Turbo", "Caldas", "Copacabana", "La Estrella", "Marinilla", "Guarne", "Chigorodó", "Santa Fe de Antioquia", "Yarumal", "El Santuario", "Otra ciudad / municipio"],
+            "Arauca": ["Arauca", "Tame", "Saravena", "Arauquita", "Otra ciudad / municipio"],
+            "Atlántico": ["Barranquilla", "Soledad", "Malambo", "Sabanalarga", "Puerto Colombia", "Baranoa", "Galapa", "Otra ciudad / municipio"],
+            "Bogotá D.C.": ["Bogotá D.C."],
+            "Bolívar": ["Cartagena", "Magangué", "Turbaco", "Arjona", "Carmen de Bolívar", "Mompós", "María La Baja", "Otra ciudad / municipio"],
+            "Boyacá": ["Tunja", "Duitama", "Sogamoso", "Chiquinquirá", "Paipa", "Puerto Boyacá", "Villa de Leyva", "Moniquirá", "Garagoa", "Otra ciudad / municipio"],
+            "Caldas": ["Manizales", "Villamaría", "Chinchiná", "La Dorada", "Riosucio", "Anserma", "Salamina", "Otra ciudad / municipio"],
+            "Caquetá": ["Florencia", "San Vicente del Caguán", "Puerto Rico", "El Doncello", "Otra ciudad / municipio"],
+            "Casanare": ["Yopal", "Aguazul", "Villanueva", "Paz de Ariporo", "Monterrey", "Otra ciudad / municipio"],
+            "Cauca": ["Popayán", "Santander de Quilichao", "Puerto Tejada", "Piendamó", "El Tambo", "Miranda", "Corinto", "Otra ciudad / municipio"],
+            "Cesar": ["Valledupar", "Aguachica", "Agustín Codazzi", "Bosconia", "Curumaní", "La Jagua de Ibirico", "Otra ciudad / municipio"],
+            "Chocó": ["Quibdó", "Istmina", "Tadó", "Condoto", "Otra ciudad / municipio"],
+            "Córdoba": ["Montería", "Cereté", "Lorica", "Sahagún", "Montelíbano", "Tierralta", "Planeta Rica", "Chinú", "Otra ciudad / municipio"],
+            "Cundinamarca": ["Soacha", "Chía", "Zipaquirá", "Fusagasugá", "Facatativá", "Mosquera", "Funza", "Madrid", "Girardot", "Cajicá", "Tocancipá", "Ubaté", "Villeta", "La Vega", "Pacho", "Sopó", "Cota", "Tenjo", "Tabio", "Otra ciudad / municipio"],
+            "Guainía": ["Inírida", "Otra ciudad / municipio"],
+            "Guaviare": ["San José del Guaviare", "Calamar", "Otra ciudad / municipio"],
+            "Huila": ["Neiva", "Pitalito", "Garzón", "La Plata", "Campoalegre", "Algeciras", "Otra ciudad / municipio"],
+            "La Guajira": ["Riohacha", "Maicao", "Uribia", "San Juan del Cesar", "Fonseca", "Albania", "Otra ciudad / municipio"],
+            "Magdalena": ["Santa Marta", "Ciénaga", "Fundación", "El Banco", "Zona Bananera", "Aracataca", "Plato", "Otra ciudad / municipio"],
+            "Meta": ["Villavicencio", "Acacías", "Granada", "Puerto López", "Puerto Gaitán", "Cumaral", "San Martín", "Otra ciudad / municipio"],
+            "Nariño": ["Pasto", "Ipiales", "Tumaco", "Túquerres", "La Unión", "Samaniego", "Otra ciudad / municipio"],
+            "Norte de Santander": ["Cúcuta", "Ocaña", "Los Patios", "Villa del Rosario", "Pamplona", "Tibú", "El Zulia", "Otra ciudad / municipio"],
+            "Putumayo": ["Mocoa", "Puerto Asís", "Orito", "Valle del Guamuez (La Hormiga)", "Villagarzón", "Otra ciudad / municipio"],
+            "Quindío": ["Armenia", "Calarcá", "Montenegro", "Quimbaya", "La Tebaida", "Circasia", "Filandia", "Otra ciudad / municipio"],
+            "Risaralda": ["Pereira", "Dosquebradas", "Santa Rosa de Cabal", "La Virginia", "Belén de Umbría", "Otra ciudad / municipio"],
+            "San Andrés y Providencia": ["San Andrés", "Providencia"],
+            "Santander": ["Bucaramanga", "Floridablanca", "Girón", "Piedecuesta", "Barrancabermeja", "San Gil", "Socorro", "Málaga", "Barbosa", "Otra ciudad / municipio"],
+            "Sucre": ["Sincelejo", "Corozal", "San Marcos", "Tolú", "Sampués", "Sincé", "Otra ciudad / municipio"],
+            "Tolima": ["Ibagué", "Espinal", "Melgar", "Honda", "Chaparral", "Líbano", "Mariquita", "Fresno", "Otra ciudad / municipio"],
+            "Valle del Cauca": ["Cali", "Palmira", "Buenaventura", "Tuluá", "Cartago", "Buga", "Jamundí", "Yumbo", "Zarzal", "Roldanillo", "Florida", "Pradera", "Otra ciudad / municipio"],
+            "Vaupés": ["Mitú", "Otra ciudad / municipio"],
+            "Vichada": ["Puerto Carreño", "La Primavera", "Otra ciudad / municipio"]
+        };
+
+        const deptoSelect = document.getElementById('departamento');
+        const ciudadSelect = document.getElementById('ciudad');
+
+        function inicializarUbicaciones() {
+            deptoSelect.innerHTML = '<option value="" disabled selected>Selecciona Departamento</option>';
+            Object.keys(municipiosPorDepartamento).sort().forEach(depto => {
+                const opt = document.createElement('option');
+                opt.value = depto;
+                opt.textContent = depto;
+                deptoSelect.appendChild(opt);
+            });
+        }
+
+        deptoSelect.addEventListener('change', function() {
+            const deptoSeleccionado = this.value;
+            const ciudades = municipiosPorDepartamento[deptoSeleccionado] || [];
+            ciudadSelect.innerHTML = '<option value="" disabled selected>Selecciona Ciudad / Municipio</option>';
+            ciudades.forEach(ciudad => {
+                const opt = document.createElement('option');
+                opt.value = ciudad;
+                opt.textContent = ciudad;
+                ciudadSelect.appendChild(opt);
+            });
+            ciudadSelect.disabled = false;
+        });
+
+        inicializarUbicaciones();
+
+        // ==========================================
+        // PRECIOS Y NOMBRES
+        // ==========================================
+        const productos = {
+            '1_par': { name: 'Nombre Producto 1', price: 69900 },
+            '2_pares': { name: 'Nombre Producto 2', price: 111840 },
+            '3_pares': { name: 'Nombre Producto 3', price: 146790 }
+        };
+
+        function formatPrice(number) {
+            let parts = number.toFixed(2).split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return "$" + parts.join(",");
+        }
+
+        const radioButtons = document.querySelectorAll('.product-radio');
+        const elSubtotal = document.getElementById('summary-subtotal');
+        const elTotal = document.getElementById('summary-total');
+        const elBtnText = document.getElementById('btn-text-price');
+        const form = document.getElementById('checkoutForm');
+        let currentSelectedValue = '1_par';
+
+        // LÓGICA DEL DOWNSELL
+        let descuentoAplicado = false;
+        const VALOR_DESCUENTO = 4000;
+        let modalMostrado = false;
+        
+        const downsellModal = document.getElementById('downsellModal');
+        const downsellContent = document.getElementById('downsellContent');
+        const summaryDiscountRow = document.getElementById('summary-discount-row');
+
+        function mostrarDownsell() {
+            if (!descuentoAplicado && !modalMostrado) {
+                downsellModal.classList.remove('hidden');
+                setTimeout(() => {
+                    downsellContent.classList.remove('scale-95');
+                    downsellContent.classList.add('scale-100');
+                }, 10);
+                modalMostrado = true;
+            }
+        }
+
+        function ocultarDownsell() {
+            downsellContent.classList.remove('scale-100');
+            downsellContent.classList.add('scale-95');
+            setTimeout(() => {
+                downsellModal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('btn-cerrar-checkout').addEventListener('click', mostrarDownsell);
+        document.addEventListener('mouseleave', (e) => { 
+            if (e.clientY < 0) mostrarDownsell();
+        });
+
+        document.getElementById('btn-decline-discount').addEventListener('click', ocultarDownsell);
+        document.getElementById('btn-accept-discount').addEventListener('click', () => {
+            descuentoAplicado = true;
+            actualizarPreciosUI();
+            ocultarDownsell();
+            document.getElementById('nombre').focus();
+        });
+
+        function actualizarPreciosUI() {
+            const priceInfo = productos[currentSelectedValue];
+            let subtotal = priceInfo.price;
+            let total = subtotal;
+
+            elSubtotal.textContent = formatPrice(subtotal);
+
+            if (descuentoAplicado) {
+                total = subtotal - VALOR_DESCUENTO;
+                summaryDiscountRow.classList.remove('hidden');
+                summaryDiscountRow.classList.add('flex');
+            } else {
+                summaryDiscountRow.classList.add('hidden');
+                summaryDiscountRow.classList.remove('flex');
+            }
+
+            elTotal.textContent = formatPrice(total);
+            elBtnText.textContent = `COMPLETA TU COMPRA - ${formatPrice(total)}`;
+        }
+
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function(e) {
+                if(this.checked) {
+                    currentSelectedValue = this.value;
+                    actualizarPreciosUI();
+                }
+            });
+        });
+
+        // TEMPORIZADOR
+        let timeInSeconds = 10 * 60;
+        const countdownEl = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const minutes = Math.floor(timeInSeconds / 60);
+            let seconds = timeInSeconds % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            let displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+            countdownEl.textContent = `${displayMinutes}:${seconds}`;
+            if (timeInSeconds > 0) timeInSeconds--;
+            else countdownEl.textContent = "00:00";
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ENVÍO DE DATOS
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const celular = document.getElementById('celular').value.trim();
+            const direccion = document.getElementById('direccion').value.trim();
+            const referencia = document.getElementById('referencia').value.trim();
+            const departamento = deptoSelect.options[deptoSelect.selectedIndex]?.text || '';
+            const ciudad = ciudadSelect.options[ciudadSelect.selectedIndex]?.text || '';
+
+            const productoSeleccionado = productos[currentSelectedValue];
+            
+            let precioFinalCalculado = productoSeleccionado.price;
+            if (descuentoAplicado) precioFinalCalculado -= VALOR_DESCUENTO;
+            const precioTotalTexto = formatPrice(precioFinalCalculado);
+
+            // Objeto de datos para Google Sheets
+            const fechaActual = new Date();
+            const orderData = {
+                fecha: fechaActual.toLocaleDateString() + ' ' + fechaActual.toLocaleTimeString(),
+                nombre: nombre,
+                celular: celular,
+                direccion: direccion,
+                referencia: referencia,
+                ciudad: ciudad,
+                departamento: departamento,
+                producto: productoSeleccionado.name,
+                descuento: descuentoAplicado ? "Sí (-$4.000)" : "No",
+                precioTotal: precioTotalTexto
+            };
+
+            const btnOriginalText = elBtnText.textContent;
+            elBtnText.textContent = "PROCESANDO PEDIDO...";
+
+            // Enviar silenciosamente a Google Sheets
+            if(GOOGLE_SHEETS_URL !== "AQUI_PEGAS_TU_URL") {
+                fetch(GOOGLE_SHEETS_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Evita errores de seguridad en navegadores
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderData)
+                }).catch(err => console.log("Error de conexión a Sheet", err));
+            }
+
+            // Construir mensaje WhatsApp
+            let mensaje = `🚨 *NUEVO PEDIDO (PAGO CONTRA ENTREGA)* 🚨\n\n`;
+            mensaje += `📦 *Producto:* ${productoSeleccionado.name}\n`;
+            if (descuentoAplicado) mensaje += `🎁 *DESCUENTO APLICADO:* -$4.000\n`;
+            mensaje += `💰 *Total a cobrar:* ${precioTotalTexto}\n\n`;
+            mensaje += `👤 *Datos del Cliente:*\n`;
+            mensaje += `*Nombre:* ${nombre}\n`;
+            mensaje += `*Celular:* ${celular}\n`;
+            mensaje += `*Dirección:* ${direccion}\n`;
+            mensaje += `*Barrio/Ref:* ${referencia}\n`;
+            mensaje += `*Ciudad:* ${ciudad}\n`;
+            mensaje += `*Departamento:* ${departamento}\n\n`;
+            mensaje += `✅ _Cliente comprometido a recibir._`;
+
+            const textEncoded = encodeURIComponent(mensaje);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${MI_NUMERO_WHATSAPP}&text=${textEncoded}`;
+
+            setTimeout(() => {
+                window.location.href = whatsappUrl;
+                elBtnText.textContent = btnOriginalText;
+            }, 800);
+        });
+
+    </script>
+</body>
+</html>
