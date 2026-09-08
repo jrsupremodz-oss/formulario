@@ -104,7 +104,7 @@
 
     <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl relative overflow-hidden">
         
-        <!-- Botón de Cerrar Ajustado y Estilizado -->
+        <!-- Botón de Cerrar -->
         <button type="button" id="btn-cerrar-checkout" title="Cerrar" aria-label="Cerrar" 
                 class="absolute top-3.5 right-3.5 w-8 h-8 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-500 hover:text-gray-800 active:scale-95 rounded-full flex items-center justify-center z-20 transition-all border border-gray-200 focus:outline-none">
             <svg class="w-4 h-4 stroke-current" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -113,7 +113,6 @@
         </button>
 
         <div class="p-5 sm:p-6 pb-8">
-            <!-- Encabezado con padding lateral -->
             <div class="text-center mb-6 pt-1 px-8">
                 <h1 class="text-xl font-extrabold text-black uppercase tracking-tight mb-2">
                     POCAS UNIDADES DISPONIBLES! <span class="text-xl">🔥</span>
@@ -127,7 +126,6 @@
                 
                 <div class="space-y-3 mb-6" id="product-selection">
                     
-                    <!-- Opción 1: Waterjetpro 1 unidad -->
                     <label class="block cursor-pointer relative">
                         <input type="radio" name="producto" value="1_par" class="product-radio peer sr-only" checked>
                         <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
@@ -144,7 +142,6 @@
                         </div>
                     </label>
 
-                    <!-- Opción 2: 2 unidades -->
                     <label class="block cursor-pointer relative">
                         <input type="radio" name="producto" value="2_pares" class="product-radio peer sr-only">
                         <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
@@ -162,7 +159,6 @@
                         </div>
                     </label>
 
-                    <!-- Opción 3: 3 unidades -->
                     <label class="block cursor-pointer relative">
                         <input type="radio" name="producto" value="3_pares" class="product-radio peer sr-only">
                         <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
@@ -219,8 +215,6 @@
                 </div>
 
                 <div class="space-y-4 mb-6">
-                    
-                    <!-- Nombre -->
                     <div>
                         <label class="block text-sm font-bold text-gray-900 mb-1.5">Nombre completo<span class="text-red-500">*</span></label>
                         <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
@@ -232,7 +226,6 @@
                         </div>
                     </div>
 
-                    <!-- Celular -->
                     <div>
                         <label class="block text-sm font-bold text-gray-900 mb-1.5">Celular con WhatsApp<span class="text-red-500">*</span></label>
                         <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
@@ -246,7 +239,6 @@
                         </div>
                     </div>
 
-                    <!-- Dirección -->
                     <div>
                         <label class="block text-sm font-bold text-gray-900 mb-1.5">Dirección<span class="text-red-500">*</span></label>
                         <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
@@ -258,7 +250,6 @@
                         </div>
                     </div>
 
-                    <!-- Referencia -->
                     <div>
                         <label class="block text-sm font-bold text-gray-900 mb-1.5">Barrio/Dpto/Calle/Av<span class="text-red-500">*</span></label>
                         <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
@@ -270,7 +261,6 @@
                         </div>
                     </div>
 
-                    <!-- Departamento -->
                     <div>
                         <label class="block text-sm font-bold text-gray-900 mb-1.5">Departamento<span class="text-red-500">*</span></label>
                         <div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
@@ -283,7 +273,6 @@
                         </div>
                     </div>
 
-                    <!-- Ciudad -->
                     <div>
                         <label class="block text-sm font-bold text-gray-900 mb-1.5">Ciudad / Municipio<span class="text-red-500">*</span></label>
                         <div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
@@ -307,7 +296,6 @@
                     </div>
                 </div>
 
-                <!-- Temporizador -->
                 <div class="bg-red-50 border border-red-100 rounded-xl p-4 text-center mb-6">
                     <p class="text-red-500 font-bold text-lg mb-1 pulse-text">Date prisa, la oferta termina en</p>
                     <div class="text-red-600 font-black text-3xl" id="countdown">10:00</div>
@@ -329,20 +317,15 @@
 
     <script>
         // ==========================================
-        // 🔴 CONFIGURACIÓN DE TU WHATSAPP 🔴
+        // 🔴 VARIABLES DE CONFIGURACIÓN 🔴
         // ==========================================
         const MI_NUMERO_WHATSAPP = "584169485195"; 
         
-        // ==========================================
-        // 🔴 CONFIGURACIÓN DE TELEGRAM BOT 🔴
-        // ==========================================
-        const TELEGRAM_BOT_TOKEN = "#";
-        const TELEGRAM_CHAT_ID = "#";
+        // ⚠️ PEGA AQUÍ LA URL GENERADA DE GOOGLE APPS SCRIPT (TERMINA EN /exec) ⚠️
+        const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyPGycc3dDWtIUBHeOFf3NQO_-LLMEaV3oIJRknTSdxuHPCsvaFW_BIP6md-f728nZ-/exec"; 
 
-        // ==========================================
-        // 🔴 CONFIGURACIÓN DE GOOGLE SHEETS 🔴
-        // ==========================================
-        const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyPGycc3dDWtIUBHeOFf3NQO_-LLMEaV3oIJRknTSdxuHPCsvaFW_BIP6md-f728nZ-/exec";
+        /* NOTA: Eliminadas las credenciales de Telegram del código fuente por motivos de seguridad.
+           Ahora tu Google Apps Script es el encargado de conectarse con el Bot de Telegram de forma segura */
 
         const municipiosPorDepartamento = {
             "Amazonas": [
@@ -745,7 +728,7 @@
             if (descuentoAplicado) precioFinalCalculado -= VALOR_DESCUENTO;
             const precioTotalTexto = formatPrice(precioFinalCalculado);
 
-            // Objeto de datos para Google Sheets
+            // Objeto de datos para enviar a Google Apps Script
             const fechaActual = new Date();
             const orderData = {
                 fecha: fechaActual.toLocaleDateString() + ' ' + fechaActual.toLocaleTimeString(),
@@ -763,61 +746,22 @@
             const btnOriginalText = elBtnText.textContent;
             elBtnText.textContent = "PROCESANDO PEDIDO...";
 
-            const envios = [];
-
-            // 1. Google Sheets
+            // 1. Envío Único a Google Apps Script (que por detrás guardará en hoja y enviará a Telegram)
             if(GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL !== "AQUI_PEGAS_TU_URL") {
-                envios.push(
-                    fetch(GOOGLE_SHEETS_URL, {
+                try {
+                    await fetch(GOOGLE_SHEETS_URL, {
                         method: 'POST',
-                        mode: 'no-cors',
+                        mode: 'no-cors', // Evita bloqueos de origen en navegadores
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(orderData),
                         keepalive: true
-                    }).catch(err => console.log("Error de conexión a Sheet", err))
-                );
+                    });
+                } catch (err) {
+                    console.log("Error silencioso (probablemente CORS, pero el backend lo recibe):", err);
+                }
             }
 
-            // 2. Telegram Bot
-            let mensajeTelegram = `🚨 <b>¡NUEVO PEDIDO RECIBIDO!</b> 🚨\n\n`;
-            mensajeTelegram += `📦 <b>Producto:</b> ${productoSeleccionado.name}\n`;
-            mensajeTelegram += `🎁 <b>Descuento:</b> ${descuentoAplicado ? 'Sí (-$4.000)' : 'No'}\n`;
-            mensajeTelegram += `💰 <b>Total a Cobrar:</b> ${precioTotalTexto}\n\n`;
-            mensajeTelegram += `👤 <b>DATOS DEL CLIENTE:</b>\n`;
-            mensajeTelegram += `• <b>Nombre:</b> ${nombre}\n`;
-            mensajeTelegram += `• <b>Celular:</b> ${celular}\n`;
-            mensajeTelegram += `• <b>Dirección:</b> ${direccion}\n`;
-            mensajeTelegram += `• <b>Barrio/Ref:</b> ${referencia}\n`;
-            mensajeTelegram += `• <b>Ciudad:</b> ${ciudad}\n`;
-            mensajeTelegram += `• <b>Departamento:</b> ${departamento}\n`;
-            mensajeTelegram += `• <b>Fecha:</b> ${orderData.fecha}\n\n`;
-            mensajeTelegram += `⚡ <i>Pago Contra Entrega - Cliente Comprometido</i>`;
-
-            if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-                envios.push(
-                    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: TELEGRAM_CHAT_ID,
-                            text: mensajeTelegram,
-                            parse_mode: 'HTML'
-                        }),
-                        keepalive: true
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log("Respuesta de Telegram:", data);
-                        if (!data.ok) console.error("Error devuelto por Telegram:", data.description);
-                    })
-                    .catch(err => console.error("Error en la llamada a Telegram:", err))
-                );
-            }
-
-            // Esperar a que se procesen las solicitudes antes de redirigir a WhatsApp
-            await Promise.allSettled(envios);
-
-            // Construir mensaje WhatsApp
+            // 2. Construir mensaje de WhatsApp
             let mensaje = `🚨 *NUEVO PEDIDO (PAGO CONTRA ENTREGA)* 🚨\n\n`;
             mensaje += `📦 *Producto:* ${productoSeleccionado.name}\n`;
             if (descuentoAplicado) mensaje += `🎁 *DESCUENTO APLICADO:* -$4.000\n`;
@@ -831,9 +775,10 @@
             mensaje += `*Departamento:* ${departamento}\n\n`;
             mensaje += `✅ _Cliente comprometido a recibir._`;
 
+            // 3. Redirigir a WhatsApp
             const textEncoded = encodeURIComponent(mensaje);
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${MI_NUMERO_WHATSAPP}&text=${textEncoded}`;
-
+            
             window.location.href = whatsappUrl;
             elBtnText.textContent = btnOriginalText;
         });
