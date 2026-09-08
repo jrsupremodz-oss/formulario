@@ -297,7 +297,6 @@
                     </div>
                 </div>
 
-                <!-- Checkbox -->
                 <div class="mb-6 flex items-start gap-3">
                     <div class="flex items-center h-5 mt-1">
                         <input id="compromiso" name="compromiso" type="checkbox" required
@@ -334,6 +333,12 @@
         // ==========================================
         const MI_NUMERO_WHATSAPP = "584169485195"; 
         
+        // ==========================================
+        // 🔴 CONFIGURACIÓN DE TELEGRAM BOT 🔴
+        // ==========================================
+        const TELEGRAM_BOT_TOKEN = "8683366249:AAGOU47FObO4MT8OvOeQ7-fA8IgR1C_ga1I";
+        const TELEGRAM_CHAT_ID = "1829790745";
+
         // ==========================================
         // 🔴 CONFIGURACIÓN DE GOOGLE SHEETS 🔴
         // ==========================================
@@ -766,6 +771,35 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(orderData)
                 }).catch(err => console.log("Error de conexión a Sheet", err));
+            }
+
+            // ==========================================
+            // 🤖 ENVÍO AUTOMÁTICO A TU BOT DE TELEGRAM 🤖
+            // ==========================================
+            let mensajeTelegram = `🚨 <b>¡NUEVO PEDIDO RECIBIDO!</b> 🚨\n\n`;
+            mensajeTelegram += `📦 <b>Producto:</b> ${productoSeleccionado.name}\n`;
+            mensajeTelegram += `🎁 <b>Descuento:</b> ${descuentoAplicado ? 'Sí (-$4.000)' : 'No'}\n`;
+            mensajeTelegram += `💰 <b>Total a Cobrar:</b> ${precioTotalTexto}\n\n`;
+            mensajeTelegram += `👤 <b>DATOS DEL CLIENTE:</b>\n`;
+            mensajeTelegram += `• <b>Nombre:</b> ${nombre}\n`;
+            mensajeTelegram += `• <b>Celular:</b> ${celular}\n`;
+            mensajeTelegram += `• <b>Dirección:</b> ${direccion}\n`;
+            mensajeTelegram += `• <b>Barrio/Ref:</b> ${referencia}\n`;
+            mensajeTelegram += `• <b>Ciudad:</b> ${ciudad}\n`;
+            mensajeTelegram += `• <b>Departamento:</b> ${departamento}\n`;
+            mensajeTelegram += `• <b>Fecha:</b> ${orderData.fecha}\n\n`;
+            mensajeTelegram += `⚡ <i>Pago Contra Entrega - Cliente Comprometido</i>`;
+
+            if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: mensajeTelegram,
+                        parse_mode: 'HTML'
+                    })
+                }).catch(err => console.log("Error enviando a Telegram", err));
             }
 
             // Construir mensaje WhatsApp
