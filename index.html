@@ -1,843 +1,499 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Checkout - Oferta Exclusiva Waterjetpro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .product-radio:checked + div {
-            border-color: #ef4444; 
-            background-color: #fef2f2; 
-        }
-        
-        .pulse-text {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .7; }
-        }
-
-        @keyframes sacudon {
-            0%, 100% { transform: translateX(0) scale(1); }
-            5% { transform: translateX(-4px) rotate(-1deg) scale(1.02); }
-            10% { transform: translateX(4px) rotate(1deg) scale(1.02); }
-            15% { transform: translateX(-4px) rotate(-1deg) scale(1.02); }
-            20% { transform: translateX(4px) rotate(1deg) scale(1.02); }
-            25% { transform: translateX(0) scale(1); }
-        }
-        .btn-sacudon {
-            animation: sacudon 4s infinite; 
-            transform-origin: center;
-        }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-    </style>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1196814618515553');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1196814618515553&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Checkout - Oferta Exclusiva Waterjetpro</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+​body {
+font-family: 'Inter', sans-serif;
+background-color: #f3f4f6;
+-webkit-font-smoothing: antialiased;
+}
+​.product-radio:checked + div {
+border-color: #ef4444;
+background-color: #fef2f2;
+}
+​.pulse-text {
+animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: .7; }
+}
+​@keyframes sacudon {
+0%, 100% { transform: translateX(0) scale(1); }
+5% { transform: translateX(-4px) rotate(-1deg) scale(1.02); }
+10% { transform: translateX(4px) rotate(1deg) scale(1.02); }
+15% { transform: translateX(-4px) rotate(-1deg) scale(1.02); }
+20% { transform: translateX(4px) rotate(1deg) scale(1.02); }
+25% { transform: translateX(0) scale(1); }
+}
+.btn-sacudon {
+animation: sacudon 4s infinite;
+transform-origin: center;
+}
+​::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1196814618515553');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1196814618515553&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body class="py-6 px-4 md:py-10 flex justify-center min-h-screen">
-
-    <div id="downsellModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
-        <div class="bg-gradient-to-br from-yellow-300 to-yellow-500 w-full max-w-sm rounded-3xl p-6 text-center shadow-2xl relative overflow-hidden transform scale-95 transition-transform duration-300" id="downsellContent">
-            <!-- Decoración -->
-            <div class="absolute top-0 left-0 w-24 h-24 bg-yellow-400 rounded-full opacity-60 -translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-10 right-0 w-28 h-28 bg-yellow-600 rounded-full opacity-20 translate-x-1/3"></div>
-            <div class="absolute top-1/4 right-4 w-6 h-6 bg-orange-500 rounded-full opacity-60"></div>
-            <div class="absolute bottom-1/4 left-4 w-8 h-8 bg-red-500 rounded-full opacity-60"></div>
-            
-            <h2 class="text-3xl font-black text-black mb-1 relative z-10">¡Espera!</h2>
-            <p class="text-black font-medium mb-4 relative z-10 text-sm leading-snug">¡Felicidades! ¡Acabas de desbloquear un descuento especial!</p>
-            <h3 class="text-lg font-bold text-black mb-6 relative z-10">Compra ahora, ¡obtén un descuento!</h3>
-            
-            <!-- Estrella de Descuento -->
-            <div class="relative w-40 h-40 mx-auto mb-6 flex items-center justify-center z-10">
-                <svg viewBox="0 0 100 100" class="absolute w-full h-full text-red-500 drop-shadow-xl" fill="url(#grad1)">
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <polygon points="50,0 61,15 79,11 83,28 100,34 94,50 100,66 83,72 79,89 61,85 50,100 39,85 21,89 17,72 0,66 6,50 0,34 17,28 21,11 39,15"></polygon>
-                </svg>
-                <div class="relative text-white font-black text-2xl z-20" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">$4.000,00</div>
-            </div>
-            
-            <div class="space-y-3 relative z-10">
-                <button type="button" id="btn-accept-discount" class="w-full bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white font-bold rounded-2xl py-3.5 px-4 shadow-lg active:scale-95 transition-transform text-sm sm:text-base">
-                    Completar pedido con $4.000,00 de DESCUENTO
-                </button>
-                <button type="button" id="btn-decline-discount" class="w-full bg-white text-black border-2 border-black font-bold rounded-2xl py-3 px-4 active:scale-95 transition-transform">
-                    No, gracias
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl relative overflow-hidden">
-        
-        <!-- Botón de Cerrar Ajustado y Estilizado -->
-        <button type="button" id="btn-cerrar-checkout" title="Cerrar" aria-label="Cerrar" 
-                class="absolute top-3.5 right-3.5 w-8 h-8 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-500 hover:text-gray-800 active:scale-95 rounded-full flex items-center justify-center z-20 transition-all border border-gray-200 focus:outline-none">
-            <svg class="w-4 h-4 stroke-current" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-
-        <div class="p-5 sm:p-6 pb-8">
-            <!-- Encabezado con padding lateral -->
-            <div class="text-center mb-6 pt-1 px-8">
-                <h1 class="text-xl font-extrabold text-black uppercase tracking-tight mb-2">
-                    POCAS UNIDADES DISPONIBLES! <span class="text-xl">🔥</span>
-                </h1>
-                <h2 class="text-base font-bold text-black uppercase">
-                    PAGA EN CASA / 50% DE<br>DESCUENTO <span class="text-xl">💥</span>
-                </h2>
-            </div>
-
-            <form id="checkoutForm">
-                
-                <div class="space-y-3 mb-6" id="product-selection">
-                    
-                    <!-- Opción 1: Waterjetpro 1 unidad -->
-                    <label class="block cursor-pointer relative">
-                        <input type="radio" name="producto" value="1_par" class="product-radio peer sr-only" checked>
-                        <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
-                            <div class="flex items-center gap-3">
-                                <img src="https://i.imgur.com/TWlNmpN.png" alt="Waterjetpro 1 unidad" class="w-14 h-14 rounded-md object-cover shadow-sm bg-gray-50">
-                                <div>
-                                    <h3 class="font-bold text-black text-base sm:text-lg leading-none mb-1">Waterjetpro 1 unidad</h3>
-                                    <span class="inline-block bg-gradient-to-r from-orange-400 to-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Oferta Exclusiva</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-bold text-black text-lg price-tag">$99.900,00</div>
-                            </div>
-                        </div>
-                    </label>
-
-                    <!-- Opción 2: 2 unidades -->
-                    <label class="block cursor-pointer relative">
-                        <input type="radio" name="producto" value="2_pares" class="product-radio peer sr-only">
-                        <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
-                            <div class="flex items-center gap-3">
-                                <img src="https://i.imgur.com/8ZsgJiL.png" alt="2 unidades" class="w-14 h-14 rounded-md object-cover shadow-sm bg-gray-50">
-                                <div>
-                                    <h3 class="font-bold text-black text-base sm:text-lg leading-none mb-1">Waterjetpro 2 unidades</h3>
-                                    <span class="inline-block bg-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Ahorra 20%</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-gray-400 line-through mb-0.5">$199.800,00</div>
-                                <div class="font-bold text-black text-lg price-tag">$159.840,00</div>
-                            </div>
-                        </div>
-                    </label>
-
-                    <!-- Opción 3: 3 unidades -->
-                    <label class="block cursor-pointer relative">
-                        <input type="radio" name="producto" value="3_pares" class="product-radio peer sr-only">
-                        <div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
-                            <div class="flex items-center gap-3">
-                                <img src="https://i.imgur.com/0a6aXqL.png" alt="3 unidades" class="w-14 h-14 rounded-md object-cover shadow-sm bg-gray-50">
-                                <div>
-                                    <h3 class="font-bold text-black text-base sm:text-lg leading-none mb-1">Waterjetpro 3 unidades</h3>
-                                    <span class="inline-block bg-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Ahorra 30%</span>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-gray-400 line-through mb-0.5">$299.700,00</div>
-                                <div class="font-bold text-black text-lg price-tag">$209.790,00</div>
-                            </div>
-                        </div>
-                    </label>
-
-                </div>
-
-                <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 mb-6">
-                    <div class="flex justify-between items-center mb-2 text-gray-700">
-                        <span class="text-sm">Subtotal</span>
-                        <span class="font-semibold" id="summary-subtotal">$99.900,00</span>
-                    </div>
-                    
-                    <div id="summary-discount-row" class="hidden justify-between items-center mb-2 text-red-500">
-                        <span class="text-sm font-bold flex items-center gap-1.5">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.1-.9-2-2-2h-6c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 4h6v2H9V4zm11 16H4V8h16v12z"/></svg>
-                            Descuento Especial
-                        </span>
-                        <span class="font-bold">- $4.000,00</span>
-                    </div>
-
-                    <div class="flex justify-between items-center mb-3 text-gray-700">
-                        <span class="text-sm">Envío</span>
-                        <span class="font-bold text-black">Gratis</span>
-                    </div>
-                    <hr class="border-gray-200 mb-3">
-                    <div class="flex justify-between items-center">
-                        <span class="font-bold text-black text-lg">Total</span>
-                        <span class="font-bold text-black text-xl" id="summary-total">$99.900,00</span>
-                    </div>
-                </div>
-
-                <div class="mb-6">
-                    <h4 class="font-bold text-black mb-3 text-lg">Opciones de envío</h4>
-                    <label class="flex items-center justify-between border border-gray-200 rounded-xl p-3 bg-white cursor-pointer">
-                        <div class="flex items-center gap-3">
-                            <input type="radio" checked class="w-5 h-5 accent-black text-black bg-gray-100 border-gray-300 focus:ring-black">
-                            <span class="text-gray-700 font-medium">Envío gratis</span>
-                        </div>
-                        <span class="font-bold text-black">Gratis</span>
-                    </label>
-                </div>
-
-                <div class="space-y-4 mb-6">
-                    
-                    <!-- Nombre -->
-                    <div>
-                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Nombre completo<span class="text-red-500">*</span></label>
-                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
-                            <span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                            </span>
-                            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Perez" 
-                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
-                        </div>
-                    </div>
-
-                    <!-- Celular -->
-                    <div>
-                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Celular con WhatsApp<span class="text-red-500">*</span></label>
-                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
-                            <span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
-                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.573-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.733 1.487h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.18-1.257-6.167-3.486-8.414"/>
-                                </svg>
-                            </span>
-                            <input type="tel" id="celular" name="celular" required placeholder="Ej. 300 000 00 00" 
-                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
-                        </div>
-                    </div>
-
-                    <!-- Dirección -->
-                    <div>
-                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Dirección<span class="text-red-500">*</span></label>
-                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
-                            <span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </span>
-                            <input type="text" id="direccion" name="direccion" required placeholder="Lo más específica posible" 
-                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
-                        </div>
-                    </div>
-
-                    <!-- Referencia -->
-                    <div>
-                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Barrio/Dpto/Calle/Av<span class="text-red-500">*</span></label>
-                        <div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
-                            <span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                            </span>
-                            <input type="text" id="referencia" name="referencia" required placeholder="Ingrese un punto de referencia" 
-                                class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
-                        </div>
-                    </div>
-
-                    <!-- Departamento -->
-                    <div>
-                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Departamento<span class="text-red-500">*</span></label>
-                        <div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
-                            <select id="departamento" name="departamento" required class="block w-full px-4 py-3 sm:text-sm outline-none bg-transparent text-gray-900 font-medium appearance-none cursor-pointer">
-                                <option value="" disabled selected>Selecciona Departamento</option>
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ciudad -->
-                    <div>
-                        <label class="block text-sm font-bold text-gray-900 mb-1.5">Ciudad / Municipio<span class="text-red-500">*</span></label>
-                        <div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
-                            <select id="ciudad" name="ciudad" required disabled class="block w-full px-4 py-3 sm:text-sm outline-none bg-transparent text-gray-900 font-medium appearance-none cursor-pointer disabled:bg-gray-100 disabled:text-gray-400">
-                                <option value="" disabled selected>Primero selecciona un departamento</option>
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-6 flex items-start gap-3">
-                    <div class="flex items-center h-5 mt-1">
-                        <input id="compromiso" name="compromiso" type="checkbox" required
-                            class="w-5 h-5 text-black bg-white border-gray-300 rounded focus:ring-black focus:ring-2 cursor-pointer accent-black">
-                    </div>
-                    <div class="text-sm">
-                        <label for="compromiso" class="font-medium text-gray-700 cursor-pointer">Me Comprometo a recibir el producto.</label>
-                    </div>
-                </div>
-
-                <!-- Temporizador -->
-                <div class="bg-red-50 border border-red-100 rounded-xl p-4 text-center mb-6">
-                    <p class="text-red-500 font-bold text-lg mb-1 pulse-text">Date prisa, la oferta termina en</p>
-                    <div class="text-red-600 font-black text-3xl" id="countdown">10:00</div>
-                </div>
-
-                <button type="submit" id="submitBtn" class="w-full bg-black hover:bg-gray-900 text-white rounded-[1.25rem] py-4 px-4 flex flex-col items-center justify-center transition-transform active:scale-95 shadow-lg btn-sacudon">
-                    <span class="font-black text-lg md:text-xl mb-0.5 tracking-tight uppercase" id="btn-text-price">COMPLETA TU COMPRA - $99.900,00</span>
-                    <span class="text-sm font-medium text-gray-300">Paga al recibir!</span>
-                </button>
-                
-                <div class="text-center mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 font-medium border-t border-gray-100 pt-4">
-                    <svg class="w-4 h-4 text-green-500 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                    <span>Compra 100% Segura. Pago Contra Entrega.</span>
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // ==========================================
-        // 🔴 CONFIGURACIÓN DE TU WHATSAPP 🔴
-        // ==========================================
-        const MI_NUMERO_WHATSAPP = "584169485195"; 
-        
-        // ==========================================
-        // 🔴 CONFIGURACIÓN DE TELEGRAM BOT 🔴
-        // ==========================================
-        const TELEGRAM_BOT_TOKEN = "8683366249:AAGOU47FObO4MT8OvOeQ7-fA8IgR1C_ga1I";
-        const TELEGRAM_CHAT_ID = "1829790745";
-
-        // ==========================================
-        // 🔴 CONFIGURACIÓN DE GOOGLE SHEETS 🔴
-        // ==========================================
-        const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyPGycc3dDWtIUBHeOFf3NQO_-LLMEaV3oIJRknTSdxuHPCsvaFW_BIP6md-f728nZ-/exec";
-
-        const municipiosPorDepartamento = {
-            "Amazonas": [
-                "El Encanto", "La Chorrera", "La Pedrera", "La Victoria", "Leticia", 
-                "Mirití-Paraná", "Puerto Alegría", "Puerto Arica", "Puerto Nariño", 
-                "Puerto Santander", "Tarapacá"
-            ],
-            "Antioquia": [
-                "Abejorral", "Abriaquí", "Alejandría", "Amagá", "Amalfi", "Andes", "Angelópolis", 
-                "Angostura", "Anorí", "Anzá", "Apartadó", "Arboletes", "Argelia", "Armenia", 
-                "Barbosa", "Bello", "Belmira", "Betania", "Betulia", "Briceño", "Buriticá", 
-                "Cáceres", "Caicedo", "Caldas", "Campamento", "Cañasgordas", "Caracolí", 
-                "Caramanta", "Carepa", "Carolina del Príncipe", "Caucasia", "Chigorodó", 
-                "Cisneros", "Ciudad Bolívar", "Cocorná", "Concepción", "Concordia", "Copacabana", 
-                "Dabeiba", "Donmatías", "Ebéjico", "El Bagre", "El Carmen de Viboral", "El Peñol", 
-                "El Retiro", "El Santuario", "Entreríos", "Envigado", "Fredonia", "Giraldo", 
-                "Girardota", "Gómez Plata", "Granada", "Guadalupe", "Guarne", "Guatapé", 
-                "Heliconia", "Hispania", "Itagüí", "Ituango", "Jardín", "Jericó", "La Ceja", 
-                "La Estrella", "La Pintada", "La Unión", "Liborina", "Maceo", "Marinilla", 
-                "Medellín", "Montebello", "Murindó", "Mutatá", "Nariño", "Nechí", "Necoclí", 
-                "Olaya", "Peque", "Pueblorrico", "Puerto Berrío", "Puerto Nare", "Puerto Triunfo", 
-                "Remedios", "Rionegro", "Sabanalarga", "Sabaneta", "Salgar", "San Andrés de Cuerquia", 
-                "San Carlos", "San Francisco", "San Jerónimo", "San José de la Montaña", 
-                "San Juan de Urabá", "San Luis", "San Pedro de los Milagros", "San Pedro de Urabá", 
-                "San Rafael", "San Roque", "San Vicente Ferrer", "Santa Bárbara", 
-                "Santa Fe de Antioquia", "Santa Rosa de Osos", "Santo Domingo", "Segovia", 
-                "Sonsón", "Sopetrán", "Támesis", "Tarazá", "Tarso", "Titiribí", "Toledo", "Turbo", 
-                "Uramita", "Urrao", "Valdivia", "Valparaíso", "Vegachí", "Yalí", "Yarumal", 
-                "Yolombó", "Yondó", "Zaragoza"
-            ],
-            "Arauca": [
-                "Arauca", "Arauquita", "Cravo Norte", "Fortul", "Puerto Rondón", "Saravena", "Tame"
-            ],
-            "Atlántico": [
-                "Baranoa", "Barranquilla", "Campo de la Cruz", "Candelaria", "Galapa", "Juan de Acosta", 
-                "Luruaco", "Malambo", "Manatí", "Palmar de Varela", "Piojó", "Polonuevo", "Ponedera", 
-                "Puerto Colombia", "Repelón", "Sabanagrande", "Sabanalarga", "Santa Lucía", 
-                "Santo Tomás", "Soledad", "Suan", "Tubará", "Usiacurí"
-            ],
-            "Bogotá D.C.": [
-                "Bogotá D.C."
-            ],
-            "Bolívar": [
-                "Achí", "Altos del Rosario", "Arenal", "Arjona", "Arroyohondo", "Barranco de Loba", 
-                "Calamar", "Cantagallo", "El Carmen de Bolívar", "Cartagena de Indias", "Cicuco", 
-                "Clemencia", "Córdoba", "El Guamo", "El Peñón", "Hatillo de Loba", "Magangué", 
-                "Mahates", "Margarita", "María La Baja", "Montecristo", "Mompox", "Morales", 
-                "Norosí", "Pinillos", "Río Viejo", "San Cristóbal", "San Estanislao", 
-                "San Fernando", "San Jacinto", "San Jacinto del Cauca", "San Juan Nepomuceno", 
-                "San Martín de Loba", "San Pablo", "Santa Catalina", "Santa Rosa", "Santa Rosa del Sur", 
-                "Simití", "Soplaviento", "Talaigua Nuevo", "Tiquisio", "Turbaco", "Turbaná", "Villanueva"
-            ],
-            "Boyacá": [
-                "Almeida", "Aquitania", "Arcabuco", "Belén", "Berbeo", "Betéitiva", "Boavita", 
-                "Boyacá", "Briceño", "Buenavista", "Busbanzá", "Caldas", "Campohermoso", "Cerinza", 
-                "Chinavita", "Chiquinquirá", "Chíquiza", "Chiscas", "Chita", "Chitaraque", "Chivatá", 
-                "Chivor", "Ciénega", "Cóombita", "Covarachía", "Cúbitá", "Cucaita", "Cuítiva", 
-                "Duitama", "El Cocuy", "El Espino", "Firavitoba", "Floresta", "Gachantivá", 
-                "Gámeza", "Garagoa", "Guacamayas", "Guateque", "Guayatá", "Güicán", "Iza", 
-                "Jenesano", "Jericó", "Labranzagrande", "La Capilla", "La Victoria", "La Uvita", 
-                "Macanal", "Maripí", "Miraflores", "Mongua", "Monguí", "Moniquirá", "Motavita", 
-                "Muzo", "Nobsa", "Nuevo Colón", "Oicatá", "Otanche", "Pachavita", "Páez", "Paipa", 
-                "Pajarito", "Panqueba", "Pauna", "Paya", "Paz de Río", "Pesca", "Pisba", "Puerto Boyacá", 
-                "Quípama", "Ramiriquí", "Rondón", "Saboyá", "Sáchica", "Samacá", "San Eduardo", 
-                "San José de Pare", "San Luis de Gaceno", "San Mateo", "San Miguel de Sema", 
-                "San Pablo de Borbur", "Santa Sofía", "Santa María", "Santa Rosa de Viterbo", 
-                "Santana", "Sativanorte", "Sativasur", "Siachoque", "Soatá", "Socha", "Socotá", 
-                "Sogamoso", "Somondoco", "Sora", "Soracá", "Sotaquirá", "Susacón", "Sutamarchán", 
-                "Sutatenza", "Tasco", "Tenza", "Tibaná", "Tibasosa", "Tinjacá", "Tipacoque", 
-                "Toca", "Togüí", "Tópaga", "Tota", "Tunja", "Tununguá", "Turmequé", "Tuta", 
-                "Tutazá", "Úmbita", "Ventaquemada", "Villa de Leyva", "Viracachá", "Zetaquira"
-            ],
-            "Caldas": [
-                "Aguadas", "Anserma", "Aranzazu", "Belalcázar", "Chinchiná", "Filadelfia", 
-                "La Dorada", "La Merced", "Manizales", "Manzanares", "Marmato", "Marquetalia", 
-                "Marulanda", "Neira", "Norocasia", "Pácora", "Palestina", "Pensilvania", 
-                "Riosucio", "Risaralda", "Salamina", "Samaná", "San José", "Supía", "Victoria", 
-                "Villamaría", "Viterbo"
-            ],
-            "Caquetá": [
-                "Albania", "Belén de los Andaquíes", "Cartagena del Chairá", "Curillo", "El Doncello", 
-                "El Paujil", "Florencia", "La Montañita", "Morelia", "Puerto Rico", "Solano", 
-                "Solita", "San José del Fragua", "San Vicente del Caguán", "Valparaíso"
-            ],
-            "Casanare": [
-                "Aguazul", "Chámeza", "Hato Corozal", "La Salina", "Maní", "Monterrey", "Nunchía", 
-                "Orocué", "Paz de Ariporo", "Pore", "Recetor", "Sabanalarga", "Sácama", 
-                "San Luis de Palenque", "Támara", "Tauramena", "Trinidad", "Villanueva", "Yopal"
-            ],
-            "Cauca": [
-                "Almaguer", "Argelia", "Balboa", "Bolívar", "Buenos Aires", "Cajibío", "Caldono", 
-                "Caloto", "Corinto", "El Tambo", "Florencia", "Guachené", "Guapí", "Inzá", 
-                "Jambaló", "La Sierra", "La Vega", "López de Micay", "Mercaderes", "Miranda", 
-                "Morales", "Padilla", "Páez", "Piamonte", "Piendamó", "Popayán", "Puerto Tejada", 
-                "Puracé", "Rosas", "San Sebastián", "Santander de Quilichao", "Santa Rosa", 
-                "Silvia", "Sotará", "Suárez", "Sucre", "Timbío", "Timbiquí", "Toribío", "Totoró", "Villa Rica"
-            ],
-            "Cesar": [
-                "Aguachica", "Agustín Codazzi", "Astrea", "Becerril", "Bosconia", "Chimichagua", 
-                "Chiriguaná", "Curumaní", "El Copey", "El Paso", "Gamarra", "González", "La Gloria", 
-                "La Jagua de Ibirico", "La Paz", "Manaure Balcón del Cesar", "Pailitas", "Pelaya", 
-                "Pueblo Bello", "Río de Oro", "San Alberto", "San Diego", "San Martín", "Tamalameque", "Valledupar"
-            ],
-            "Chocó": [
-                "Acandí", "Alto Baudó", "Atrato", "Bagadó", "Bahía Solano", "Bajo Baudó", "Bojayá", 
-                "El Cantón de San Pablo", "Cértegui", "Condoto", "El Carmen de Atrato", 
-                "El Carmen del Darién", "Istmina", "Juradó", "Litoral del San Juan", "Lloró", 
-                "Medio Atrato", "Medio Baudó", "Medio San Juan", "Nóvita", "Nuquí", "Quibdó", 
-                "Río Iró", "Río Quito", "Riosucio", "San José del Palmar", "Sipí", "Tadó", "Unuía del Chocó", "Unión Panamericana"
-            ],
-            "Córdoba": [
-                "Ayapel", "Buenavista", "Canalete", "Cereté", "Chimá", "Chinú", "Ciénaga de Oro", 
-                "Cotorra", "La Apartada", "Los Córdobas", "Momil", "Montelíbano", "Montería", 
-                "Moñitos", "Planeta Rica", "Pueblo Nuevo", "Puerto Escondido", "Puerto Libertador", 
-                "Purísima", "Sahagún", "San Andrés de Sotavento", "San Antero", "San Bernardo del Viento", 
-                "San Carlos", "San José de Uré", "San Pelayo", "Santa Cruz de Lorica", "Tierralta", "Tuchín", "Valencia"
-            ],
-            "Cundinamarca": [
-                "Agua de Dios", "Albán", "Anapoima", "Anolaima", "Apulo", "Arbeláez", "Beltrán", 
-                "Bituima", "Bojacá", "Cabrera", "Cachipay", "Cajicá", "Caparrapí", "Cáqueza", 
-                "Carmen de Carupa", "Chaguaní", "Chía", "Chipaque", "Choachí", "Chocontá", "Cogua", 
-                "Cota", "Cucunubá", "El Colegio", "El Peñón", "El Rosal", "Facatativá", "Fómeque", 
-                "Fosca", "Funza", "Fúquene", "Fusagasugá", "Gachalá", "Gachancipá", "Gachetá", "Gama", 
-                "Girardot", "Granada", "Guachetá", "Guaduas", "Guasca", "Guataquí", "Guatavita", 
-                "Guayabal de Síquima", "Guayabetal", "Gutiérrez", "Jerusalén", "Junín", "La Calera", 
-                "La Mesa", "La Palma", "La Peña", "La Vega", "Lenguazaque", "Machetá", "Madrid", 
-                "Manta", "Medina", "Mosquera", "Nariño", "Nemocón", "Nilo", "Nimaima", "Nocaima", 
-                "Pacho", "Paime", "Pandi", "Paratebueno", "Pasca", "Puerto Salgar", "Pulí", 
-                "Quebradanegra", "Quetame", "Quipile", "Ricaurte", "San Antonio del Tequendama", 
-                "San Bernardo", "San Cayetano", "San Francisco", "San Juan de Rioseco", "Sasaima", 
-                "Sesquilé", "Sibaté", "Silvania", "Simijaca", "Soacha", "Sopó", "Subachoque", 
-                "Suesca", "Sutatausa", "Tabio", "Tausa", "Tena", "Tenjo", "Tibacuy", 
-                "Tibarita", "Tocaima", "Tocancipá", "Topaipí", "Ubalá", "Ubaque", "Ubaté", "Une", 
-                "Útica", "Venecia", "Vergara", "Vianí", "Villagómez", "Villapinzón", "Villeta", 
-                "Viotá", "Yacopí", "Zipacón", "Zipaquirá"
-            ],
-            "Guainía": [
-                "Inírida", "Barrancominas", "Cacahual", "La Guadalupe", "Mapiripana", "Morichal", 
-                "Pana Pana", "Puerto Colombia", "San Felipe"
-            ],
-            "Guaviare": [
-                "Calamar", "El Retorno", "Miraflores", "San José del Guaviare"
-            ],
-            "Huila": [
-                "Acevedo", "Agrado", "Aipe", "Algeciras", "Altamira", "Baraya", "Campoalegre", 
-                "Colombia", "Elías", "Garzón", "Gigante", "Guadalupe", "Hobo", "Íquira", "Isnos", 
-                "La Argentina", "La Plata", "Nátaga", "Neiva", "Oporapa", "Paicol", "Palermo", 
-                "Palestina", "Pital", "Pitalito", "Rivera", "Saladoblanco", "San Agustín", "Santa María", 
-                "Suaza", "Tarqui", "Tello", "Teruel", "Tesalia", "Timaná", "Villavieja", "Yaguará"
-            ],
-            "La Guajira": [
-                "Albania", "Barrancas", "Dibulla", "Distracción", "El Molino", "Fonseca", "Hatonuevo", 
-                "La Jagua del Pilar", "Maicao", "Manaure", "Riohacha", "San Juan del Cesar", "Uribia", "Urumita", "Villanueva"
-            ],
-            "Magdalena": [
-                "Algarrobo", "Aracataca", "Ariguaní", "Cerro de San Antonio", "Chibolo", "Ciénaga", 
-                "Concordia", "El Banco", "El Piñón", "El Retén", "Fundación", "Guamal", "Nueva Granada", 
-                "Pedraza", "Pijiño del Carmen", "Pivijay", "Plato", "Puebloviejo", "Remolino", 
-                "Sabanas de San Ángel", "Salamina", "Santa Ana", "Santa Bárbara de Pinto", 
-                "Santa Marta", "San Zenón", "San Sebastián de Buenavista", "Sitionuevo", "Tenerife", "Zapayán", "Zona Bananera"
-            ],
-            "Meta": [
-                "Acacías", "Barranca de Upía", "Cabuyaro", "Castilla la Nueva", "Cubarral", "Cumaral", 
-                "El Calvario", "El Castillo", "El Dorado", "Fuente de Oro", "Granada", "Guamal", 
-                "Mapiripán", "Mesetas", "La Macarena", "Uribe", "Lejanías", "Puerto Concordia", 
-                "Puerto Gaitán", "Puerto López", "Puerto Lleras", "Puerto Rico", "Restrepo", 
-                "San Carlos de Guaroa", "San Juan de Arama", "San Juanito", "San Martín", "Vistahermosa", "Villavicencio"
-            ],
-            "Nariño": [
-                "Albán", "Aldana", "Ancuya", "Arboleda", "Barbacoas", "Belén", "Buesaco", "Chachagüí", 
-                "Colón", "Consacá", "Contadero", "Córdoba", "Cuaspud", "Cumbal", "Cumbitara", 
-                "El Charco", "El Peñol", "El Rosario", "El Tablón de Gómez", "El Tambo", 
-                "Francisco Pizarro", "Funes", "Guachucal", "Guaitarilla", "Gualmatán", "Iles", 
-                "Imués", "Ipiales", "La Cruz", "La Florida", "La Llanada", "La Tola", "La Unión", 
-                "Leiva", "Linares", "Los Andes", "Magüí Payán", "Mallama", "Mosquera", "Nariño", 
-                "Olaya Herrera", "Ospina", "Pasto", "Policarpa", "Puerres", "Pupiales", "Ricaurte", 
-                "Roberto Payán", "Samaniego", "San Bernardo", "San Lorenzo", "San Pablo", 
-                "San Pedro de Cartago", "Sandoná", "Santa Bárbara", "Santacruz", "Sapuyes", 
-                "Taminango", "Tangua", "San Andrés de Tumaco", "Túquerres", "Yacuanquer"
-            ],
-            "Norte de Santander": [
-                "Abrego", "Arboledas", "Bochalema", "Bucarasica", "Cáchira", "Cácota", "Chinácota", 
-                "Chitagá", "Convención", "Cúcuta", "Cúcutilla", "Durania", "El Carmen", "El Tarra", 
-                "El Zulia", "Gramalote", "Hacarí", "Herrán", "La Esperanza", "La Playa de Belén", 
-                "Labateca", "Los Patios", "Lourdes", "Mutiscua", "Ocaña", "Pamplona", "Pamplonita", 
-                "Puerto Santander", "Ragonvalia", "Salazar de Las Palmas", "San Calixto", 
-                "San Cayetano", "Santiago", "Sardinata", "Silos", "Tibú", "Toledo", "Villa del Rosario"
-            ],
-            "Putumayo": [
-                "Colón", "Mocoa", "Orito", "Puerto Asís", "Puerto Caicedo", "Puerto Guzmán", 
-                "Leguízamo", "Sibundoy", "San Francisco", "San Miguel", "Santiago", "Valle del Guamuez", "Villagarzón"
-            ],
-            "Quindío": [
-                "Armenia", "Buenavista", "Calarcá", "Circasia", "Córdoba", "Filandia", "Génova", 
-                "La Tebaida", "Montenegro", "Pijao", "Quimbaya", "Salento"
-            ],
-            "Risaralda": [
-                "Apía", "Balboa", "Belén de Umbría", "Dosquebradas", "Guática", "La Celia", 
-                "La Virginia", "Marsella", "Mistrató", "Pereira", "Pueblo Rico", "Quinchía", 
-                "Santa Rosa de Cabal", "Santuario"
-            ],
-            "San Andrés y Providencia": [
-                "Providencia y Santa Catalina", "San Andrés"
-            ],
-            "Santander": [
-                "Aguada", "Albania", "Aratoca", "Barbosa", "Barichara", "Barrancabermeja", 
-                "Betulia", "Bolívar", "Bucaramanga", "Cabrera", "California", "Capitanejo", 
-                "Carcasí", "Cepitá", "Cerrito", "Charalá", "Charta", "Chima", "Chipatá", 
-                "Cimitarra", "Concepción", "Confines", "Contratación", "Coromoro", "Curití", 
-                "El Carmen de Chucurí", "El Guacamayo", "El Peñón", "El Playón", "Encino", 
-                "Enciso", "Floridablanca", "Florián", "Galán", "Gámbita", "Girón", "Guaca", 
-                "Guadalupe", "Guapotá", "Guavatá", "Güepsa", "Hato", "Jesús María", "Jordán", 
-                "La Belleza", "La Paz", "Landázuri", "Lebrija", "Los Santos", "Macaravita", 
-                "Málaga", "Matanza", "Mogotes", "Molagavita", "Ocamonte", "Oiba", "Onzaga", 
-                "Palmar", "Palmas del Socorro", "Piedecuesta", "Pinchote", "Puente Nacional", 
-                "Puerto Parra", "Puerto Wilches", "Rionegro", "Sabana de Torres", "San Andrés", 
-                "San Benito", "San Gil", "San Joaquín", "San José de Miranda", "San Miguel", 
-                "San Vicente de Chucurí", "Santa Bárbara", "Santa Helena del Opón", "Simacota", 
-                "Socorro", "Suaita", "Sucre", "Suratá", "Tona", "Valle de San José", "Vélez", 
-                "Vetas", "Villanueva", "Zepatoca"
-            ],
-            "Sucre": [
-                "Buenavista", "Caimito", "Coloso", "Corozal", "Coveñas", "El Roble", "Galeras", 
-                "Guaranda", "La Unión", "Los Palmitos", "Majagual", "Morroa", "Ovejas", "Palmito", 
-                "Sampués", "San Benito Abad", "San Juan de Betulia", "San Marcos", "San Onofre", 
-                "San Pedro", "Sincé", "Sincelejo", "Sucre", "Tolú", "Tolú Viejo"
-            ],
-            "Tolima": [
-                "Alpujarra", "Alvarado", "Ambalema", "Anzoátegui", "Armero Guayabal", "Ataco", 
-                "Cajamarca", "Carmen de Apicalá", "Casabianca", "Chaparral", "Coello", "Coyaima", 
-                "Cunday", "Dolores", "Espinal", "Falan", "Fresno", "Guamo", "Herveo", "Honda", 
-                "Ibagué", "Icononzo", "Lérida", "Líbano", "Mariquita", "Melgar", "Murillo", 
-                "Natagaima", "Ortega", "Palocabildo", "Piedras", "Planadas", "Prado", 
-                "Purificación", "Rioblanco", "Roncesvalles", "Rovira", "Saldaña", "San Antonio", 
-                "San Luis", "Santa Isabel", "Suárez", "Valle de San Juan", "Villarrica"
-            ],
-            "Valle del Cauca": [
-                "Alcalá", "Andalucía", "Ansermanuevo", "Argelia", "Bolívar", "Buenaventura", 
-                "Buga", "Bugalagrande", "Caicedonia", "Cali", "Calima - El Darién", "Candelaria", 
-                "Cartago", "Dagua", "El Águila", "El Cairo", "El Cerrito", "El Dovio", "Florida", 
-                "Ginebra", "Guacarí", "Jamundí", "La Cumbre", "La Unión", "La Victoria", 
-                "Obando", "Palmira", "Pradera", "Restrepo", "Riofrío", "Roldanillo", "San Pedro", 
-                "Sevilla", "Toro", "Trujillo", "Tuluá", "Ulloa", "Versalles", "Vijes", "Yotoco", "Yumbo", "Zarzal"
-            ],
-            "Vaupés": [
-                "Carurú", "Mitú", "Pacoa", "Papunahua", "Taraira", "Yavaraté"
-            ],
-            "Vichada": [
-                "Cumaribo", "La Primavera", "Puerto Carreño", "Santa Rosalía"
-            ]
-        };
-
-        const deptoSelect = document.getElementById('departamento');
-        const ciudadSelect = document.getElementById('ciudad');
-
-        function inicializarUbicaciones() {
-            deptoSelect.innerHTML = '<option value="" disabled selected>Selecciona Departamento</option>';
-            Object.keys(municipiosPorDepartamento).sort().forEach(depto => {
-                const opt = document.createElement('option');
-                opt.value = depto;
-                opt.textContent = depto;
-                deptoSelect.appendChild(opt);
-            });
-        }
-
-        deptoSelect.addEventListener('change', function() {
-            const deptoSeleccionado = this.value;
-            const ciudades = municipiosPorDepartamento[deptoSeleccionado] || [];
-            
-            ciudadSelect.innerHTML = '<option value="" disabled selected>Selecciona Ciudad / Municipio</option>';
-            
-            ciudades.sort().forEach(ciudad => {
-                const opt = document.createElement('option');
-                opt.value = ciudad;
-                opt.textContent = ciudad;
-                ciudadSelect.appendChild(opt);
-            });
-            ciudadSelect.disabled = false;
-        });
-
-        inicializarUbicaciones();
-
-        const productos = {
-            '1_par': { name: 'Waterjetpro 1 unidad', price: 99900 },
-            '2_pares': { name: 'Waterjetpro 2 unidades', price: 159840 },
-            '3_pares': { name: 'Waterjetpro 3 unidades', price: 209790 }
-        };
-
-        function formatPrice(number) {
-            let parts = number.toFixed(2).split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            return "$" + parts.join(",");
-        }
-
-        const radioButtons = document.querySelectorAll('.product-radio');
-        const elSubtotal = document.getElementById('summary-subtotal');
-        const elTotal = document.getElementById('summary-total');
-        const elBtnText = document.getElementById('btn-text-price');
-        const form = document.getElementById('checkoutForm');
-        let currentSelectedValue = '1_par';
-
-        let descuentoAplicado = false;
-        const VALOR_DESCUENTO = 4000;
-        let modalMostrado = false;
-        
-        const downsellModal = document.getElementById('downsellModal');
-        const downsellContent = document.getElementById('downsellContent');
-        const summaryDiscountRow = document.getElementById('summary-discount-row');
-
-        function mostrarDownsell() {
-            if (!descuentoAplicado && !modalMostrado) {
-                downsellModal.classList.remove('hidden');
-                setTimeout(() => {
-                    downsellContent.classList.remove('scale-95');
-                    downsellContent.classList.add('scale-100');
-                }, 10);
-                modalMostrado = true;
-            }
-        }
-
-        function ocultarDownsell() {
-            downsellContent.classList.remove('scale-100');
-            downsellContent.classList.add('scale-95');
-            setTimeout(() => {
-                downsellModal.classList.add('hidden');
-            }, 300);
-        }
-
-        document.getElementById('btn-cerrar-checkout').addEventListener('click', mostrarDownsell);
-        document.addEventListener('mouseleave', (e) => { 
-            if (e.clientY < 0) mostrarDownsell();
-        });
-
-        document.getElementById('btn-decline-discount').addEventListener('click', ocultarDownsell);
-        document.getElementById('btn-accept-discount').addEventListener('click', () => {
-            descuentoAplicado = true;
-            actualizarPreciosUI();
-            ocultarDownsell();
-            document.getElementById('nombre').focus();
-        });
-
-        function actualizarPreciosUI() {
-            const priceInfo = productos[currentSelectedValue];
-            let subtotal = priceInfo.price;
-            let total = subtotal;
-
-            elSubtotal.textContent = formatPrice(subtotal);
-
-            if (descuentoAplicado) {
-                total = subtotal - VALOR_DESCUENTO;
-                summaryDiscountRow.classList.remove('hidden');
-                summaryDiscountRow.classList.add('flex');
-            } else {
-                summaryDiscountRow.classList.add('hidden');
-                summaryDiscountRow.classList.remove('flex');
-            }
-
-            elTotal.textContent = formatPrice(total);
-            elBtnText.textContent = `COMPLETA TU COMPRA - ${formatPrice(total)}`;
-        }
-
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', function(e) {
-                if(this.checked) {
-                    currentSelectedValue = this.value;
-                    actualizarPreciosUI();
-                }
-            });
-        });
-
-        let timeInSeconds = 10 * 60;
-        const countdownEl = document.getElementById('countdown');
-
-        function updateCountdown() {
-            const minutes = Math.floor(timeInSeconds / 60);
-            let seconds = timeInSeconds % 60;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            let displayMinutes = minutes < 10 ? '0' + minutes : minutes;
-            countdownEl.textContent = `${displayMinutes}:${seconds}`;
-            if (timeInSeconds > 0) timeInSeconds--;
-            else countdownEl.textContent = "00:00";
-        }
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // ENVÍO DE DATOS
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault(); 
-
-            const nombre = document.getElementById('nombre').value.trim();
-            const celular = document.getElementById('celular').value.trim();
-            const direccion = document.getElementById('direccion').value.trim();
-            const referencia = document.getElementById('referencia').value.trim();
-            const departamento = deptoSelect.options[deptoSelect.selectedIndex]?.text || '';
-            const ciudad = ciudadSelect.options[ciudadSelect.selectedIndex]?.text || '';
-
-            const productoSeleccionado = productos[currentSelectedValue];
-            
-            let precioFinalCalculado = productoSeleccionado.price;
-            if (descuentoAplicado) precioFinalCalculado -= VALOR_DESCUENTO;
-            const precioTotalTexto = formatPrice(precioFinalCalculado);
-
-            // Objeto de datos para Google Sheets
-            const fechaActual = new Date();
-            const orderData = {
-                fecha: fechaActual.toLocaleDateString() + ' ' + fechaActual.toLocaleTimeString(),
-                nombre: nombre,
-                celular: celular,
-                direccion: direccion,
-                referencia: referencia,
-                ciudad: ciudad,
-                departamento: departamento,
-                producto: productoSeleccionado.name,
-                descuento: descuentoAplicado ? "Sí (-$4.000)" : "No",
-                precioTotal: precioTotalTexto
-            };
-
-            const btnOriginalText = elBtnText.textContent;
-            elBtnText.textContent = "PROCESANDO PEDIDO...";
-
-            const envios = [];
-
-            // 1. Google Sheets
-            if(GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL !== "AQUI_PEGAS_TU_URL") {
-                envios.push(
-                    fetch(GOOGLE_SHEETS_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(orderData),
-                        keepalive: true
-                    }).catch(err => console.log("Error de conexión a Sheet", err))
-                );
-            }
-
-            // 2. Telegram Bot
-            let mensajeTelegram = `🚨 <b>¡NUEVO PEDIDO RECIBIDO!</b> 🚨\n\n`;
-            mensajeTelegram += `📦 <b>Producto:</b> ${productoSeleccionado.name}\n`;
-            mensajeTelegram += `🎁 <b>Descuento:</b> ${descuentoAplicado ? 'Sí (-$4.000)' : 'No'}\n`;
-            mensajeTelegram += `💰 <b>Total a Cobrar:</b> ${precioTotalTexto}\n\n`;
-            mensajeTelegram += `👤 <b>DATOS DEL CLIENTE:</b>\n`;
-            mensajeTelegram += `• <b>Nombre:</b> ${nombre}\n`;
-            mensajeTelegram += `• <b>Celular:</b> ${celular}\n`;
-            mensajeTelegram += `• <b>Dirección:</b> ${direccion}\n`;
-            mensajeTelegram += `• <b>Barrio/Ref:</b> ${referencia}\n`;
-            mensajeTelegram += `• <b>Ciudad:</b> ${ciudad}\n`;
-            mensajeTelegram += `• <b>Departamento:</b> ${departamento}\n`;
-            mensajeTelegram += `• <b>Fecha:</b> ${orderData.fecha}\n\n`;
-            mensajeTelegram += `⚡ <i>Pago Contra Entrega - Cliente Comprometido</i>`;
-
-            if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-                envios.push(
-                    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: TELEGRAM_CHAT_ID,
-                            text: mensajeTelegram,
-                            parse_mode: 'HTML'
-                        }),
-                        keepalive: true
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log("Respuesta de Telegram:", data);
-                        if (!data.ok) console.error("Error devuelto por Telegram:", data.description);
-                    })
-                    .catch(err => console.error("Error en la llamada a Telegram:", err))
-                );
-            }
-
-            // Esperar a que se procesen las solicitudes antes de redirigir a WhatsApp
-            await Promise.allSettled(envios);
-
-            // Construir mensaje WhatsApp
-            let mensaje = `🚨 *NUEVO PEDIDO (PAGO CONTRA ENTREGA)* 🚨\n\n`;
-            mensaje += `📦 *Producto:* ${productoSeleccionado.name}\n`;
-            if (descuentoAplicado) mensaje += `🎁 *DESCUENTO APLICADO:* -$4.000\n`;
-            mensaje += `💰 *Total a cobrar:* ${precioTotalTexto}\n\n`;
-            mensaje += `👤 *Datos del Cliente:*\n`;
-            mensaje += `*Nombre:* ${nombre}\n`;
-            mensaje += `*Celular:* ${celular}\n`;
-            mensaje += `*Dirección:* ${direccion}\n`;
-            mensaje += `*Barrio/Ref:* ${referencia}\n`;
-            mensaje += `*Ciudad:* ${ciudad}\n`;
-            mensaje += `*Departamento:* ${departamento}\n\n`;
-            mensaje += `✅ _Cliente comprometido a recibir._`;
-
-            const textEncoded = encodeURIComponent(mensaje);
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${MI_NUMERO_WHATSAPP}&text=${textEncoded}`;
-
-            window.location.href = whatsappUrl;
-            elBtnText.textContent = btnOriginalText;
-        });
-
-    </script>
+​<div id="downsellModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+<div class="bg-gradient-to-br from-yellow-300 to-yellow-500 w-full max-w-sm rounded-3xl p-6 text-center shadow-2xl relative overflow-hidden transform scale-95 transition-transform duration-300" id="downsellContent">
+<div class="absolute top-0 left-0 w-24 h-24 bg-yellow-400 rounded-full opacity-60 -translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-10 right-0 w-28 h-28 bg-yellow-600 rounded-full opacity-20 translate-x-1/3"></div>
+<div class="absolute top-1/4 right-4 w-6 h-6 bg-orange-500 rounded-full opacity-60"></div>
+<div class="absolute bottom-1/4 left-4 w-8 h-8 bg-red-500 rounded-full opacity-60"></div>
+​<h2 class="text-3xl font-black text-black mb-1 relative z-10">¡Espera!</h2>
+<p class="text-black font-medium mb-4 relative z-10 text-sm leading-snug">¡Felicidades! ¡Acabas de desbloquear un descuento especial!</p>
+<h3 class="text-lg font-bold text-black mb-6 relative z-10">Compra ahora, ¡obtén un descuento!</h3>
+​<div class="relative w-40 h-40 mx-auto mb-6 flex items-center justify-center z-10">
+<svg viewBox="0 0 100 100" class="absolute w-full h-full text-red-500 drop-shadow-xl" fill="url(#grad1)">
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+<stop offset="100%" style="stop-color:#e11d48;stop-opacity:1" />
+</linearGradient>
+</defs>
+<polygon points="50,0 61,15 79,11 83,28 100,34 94,50 100,66 83,72 79,89 61,85 50,100 39,85 21,89 17,72 0,66 6,50 0,34 17,28 21,11 39,15"></polygon>
+</svg>
+<div class="relative text-white font-black text-2xl z-20" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">$4.000,00</div>
+</div>
+​<div class="space-y-3 relative z-10">
+<button type="button" id="btn-accept-discount" class="w-full bg-gradient-to-r from-pink-500 to-orange-500 hover:from-pink-600 hover:to-orange-600 text-white font-bold rounded-2xl py-3.5 px-4 shadow-lg active:scale-95 transition-transform text-sm sm:text-base">
+Completar pedido con $4.000,00 de DESCUENTO
+</button>
+<button type="button" id="btn-decline-discount" class="w-full bg-white text-black border-2 border-black font-bold rounded-2xl py-3 px-4 active:scale-95 transition-transform">
+No, gracias
+</button>
+</div>
+</div>
+</div>
+​<div class="bg-white w-full max-w-md rounded-2xl shadow-2xl relative overflow-hidden">
+<button type="button" id="btn-cerrar-checkout" title="Cerrar" aria-label="Cerrar" 
+class="absolute top-3.5 right-3.5 w-8 h-8 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-500 hover:text-gray-800 active:scale-95 rounded-full flex items-center justify-center z-20 transition-all border border-gray-200 focus:outline-none">
+<svg class="w-4 h-4 stroke-current" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+</svg>
+</button>
+​<div class="p-5 sm:p-6 pb-8">
+<div class="text-center mb-6 pt-1 px-8">
+<h1 class="text-xl font-extrabold text-black uppercase tracking-tight mb-2">
+POCAS UNIDADES DISPONIBLES! <span class="text-xl">🔥</span>
+</h1>
+<h2 class="text-base font-bold text-black uppercase">
+PAGA EN CASA / 50% DE
+DESCUENTO <span class="text-xl">💥</span>
+</h2>
+</div>
+​<form id="checkoutForm">
+​<div class="space-y-3 mb-6" id="product-selection">
+<label class="block cursor-pointer relative">
+<input type="radio" name="producto" value="1_par" class="product-radio peer sr-only" checked>
+<div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
+<div class="flex items-center gap-3">
+<img src="https://i.imgur.com/TWlNmpN.png" alt="Waterjetpro 1 unidad" class="w-14 h-14 rounded-md object-cover shadow-sm bg-gray-50">
+<div>
+<h3 class="font-bold text-black text-base sm:text-lg leading-none mb-1">Waterjetpro 1 unidad</h3>
+<span class="inline-block bg-gradient-to-r from-orange-400 to-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Oferta Exclusiva</span>
+</div>
+</div>
+<div class="text-right">
+<div class="font-bold text-black text-lg price-tag">$99.900,00</div>
+</div>
+</div>
+</label>
+​<label class="block cursor-pointer relative">
+<input type="radio" name="producto" value="2_pares" class="product-radio peer sr-only">
+<div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
+<div class="flex items-center gap-3">
+<img src="https://i.imgur.com/8ZsgJiL.png" alt="2 unidades" class="w-14 h-14 rounded-md object-cover shadow-sm bg-gray-50">
+<div>
+<h3 class="font-bold text-black text-base sm:text-lg leading-none mb-1">Waterjetpro 2 unidades</h3>
+<span class="inline-block bg-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Ahorra 20%</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs text-gray-400 line-through mb-0.5">$199.800,00</div>
+<div class="font-bold text-black text-lg price-tag">$159.840,00</div>
+</div>
+</div>
+</label>
+​<label class="block cursor-pointer relative">
+<input type="radio" name="producto" value="3_pares" class="product-radio peer sr-only">
+<div class="border-2 border-gray-200 rounded-xl p-3 flex items-center justify-between transition-all duration-200 hover:border-red-300">
+<div class="flex items-center gap-3">
+<img src="https://i.imgur.com/0a6aXqL.png" alt="3 unidades" class="w-14 h-14 rounded-md object-cover shadow-sm bg-gray-50">
+<div>
+<h3 class="font-bold text-black text-base sm:text-lg leading-none mb-1">Waterjetpro 3 unidades</h3>
+<span class="inline-block bg-red-500 text-white text-[11px] font-bold px-2 py-0.5 rounded shadow-sm">Ahorra 30%</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs text-gray-400 line-through mb-0.5">$299.700,00</div>
+<div class="font-bold text-black text-lg price-tag">$209.790,00</div>
+</div>
+</div>
+</label>
+</div>
+​<div class="bg-gray-50 border border-gray-100 rounded-xl p-4 mb-6">
+<div class="flex justify-between items-center mb-2 text-gray-700">
+<span class="text-sm">Subtotal</span>
+<span class="font-semibold" id="summary-subtotal">$99.900,00</span>
+</div>
+​<div id="summary-discount-row" class="hidden justify-between items-center mb-2 text-red-500">
+<span class="text-sm font-bold flex items-center gap-1.5">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.1-.9-2-2-2h-6c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 4h6v2H9V4zm11 16H4V8h16v12z"/></svg>
+Descuento Especial
+</span>
+<span class="font-bold">- $4.000,00</span>
+</div>
+​<div class="flex justify-between items-center mb-3 text-gray-700">
+<span class="text-sm">Envío</span>
+<span class="font-bold text-black">Gratis</span>
+</div>
+<hr class="border-gray-200 mb-3">
+<div class="flex justify-between items-center">
+<span class="font-bold text-black text-lg">Total</span>
+<span class="font-bold text-black text-xl" id="summary-total">$99.900,00</span>
+</div>
+</div>
+​<div class="mb-6">
+<h4 class="font-bold text-black mb-3 text-lg">Opciones de envío</h4>
+<label class="flex items-center justify-between border border-gray-200 rounded-xl p-3 bg-white cursor-pointer">
+<div class="flex items-center gap-3">
+<input type="radio" checked class="w-5 h-5 accent-black text-black bg-gray-100 border-gray-300 focus:ring-black">
+<span class="text-gray-700 font-medium">Envío gratis</span>
+</div>
+<span class="font-bold text-black">Gratis</span>
+</label>
+</div>
+​<div class="space-y-4 mb-6">
+<div>
+<label class="block text-sm font-bold text-gray-900 mb-1.5">Nombre completo<span class="text-red-500">*</span></label>
+<div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+<span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+</span>
+<input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Perez" 
+class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+</div>
+</div>
+​<div>
+<label class="block text-sm font-bold text-gray-900 mb-1.5">Celular con WhatsApp<span class="text-red-500">*</span></label>
+<div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+<span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.573-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.305-1.654a11.882 11.882 0 005.733 1.487h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.18-1.257-6.167-3.486-8.414"/>
+</svg>
+</span>
+<input type="tel" id="celular" name="celular" required placeholder="Ej. 300 000 00 00" 
+class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+</div>
+</div>
+​<div>
+<label class="block text-sm font-bold text-gray-900 mb-1.5">Dirección<span class="text-red-500">*</span></label>
+<div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+<span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+</span>
+<input type="text" id="direccion" name="direccion" required placeholder="Lo más específica posible" 
+class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+</div>
+</div>
+​<div>
+<label class="block text-sm font-bold text-gray-900 mb-1.5">Barrio/Dpto/Calle/Av<span class="text-red-500">*</span></label>
+<div class="flex shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+<span class="inline-flex items-center px-3.5 rounded-l-md border-r border-gray-200 bg-gray-100 text-gray-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+</span>
+<input type="text" id="referencia" name="referencia" required placeholder="Ingrese un punto de referencia" 
+class="flex-1 block w-full px-3 py-3 rounded-none rounded-r-lg sm:text-sm outline-none bg-transparent placeholder-gray-400 text-gray-900 font-medium">
+</div>
+</div>
+​<div>
+<label class="block text-sm font-bold text-gray-900 mb-1.5">Departamento<span class="text-red-500">*</span></label>
+<div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+<select id="departamento" name="departamento" required class="block w-full px-4 py-3 sm:text-sm outline-none bg-transparent text-gray-900 font-medium appearance-none cursor-pointer">
+<option value="" disabled selected>Selecciona Departamento</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+</div>
+</div>
+</div>
+​<div>
+<label class="block text-sm font-bold text-gray-900 mb-1.5">Ciudad / Municipio<span class="text-red-500">*</span></label>
+<div class="relative shadow-sm rounded-lg overflow-hidden border border-gray-300 focus-within:border-black focus-within:ring-1 focus-within:ring-black transition-all bg-white">
+<select id="ciudad" name="ciudad" required disabled class="block w-full px-4 py-3 sm:text-sm outline-none bg-transparent text-gray-900 font-medium appearance-none cursor-pointer disabled:bg-gray-100 disabled:text-gray-400">
+<option value="" disabled selected>Primero selecciona un departamento</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+</div>
+</div>
+</div>
+</div>
+​<div class="mb-6 flex items-start gap-3">
+<div class="flex items-center h-5 mt-1">
+<input id="compromiso" name="compromiso" type="checkbox" required
+class="w-5 h-5 text-black bg-white border-gray-300 rounded focus:ring-black focus:ring-2 cursor-pointer accent-black">
+</div>
+<div class="text-sm">
+<label for="compromiso" class="font-medium text-gray-700 cursor-pointer">Me Comprometo a recibir el producto.</label>
+</div>
+</div>
+​<div class="bg-red-50 border border-red-100 rounded-xl p-4 text-center mb-6">
+<p class="text-red-500 font-bold text-lg mb-1 pulse-text">Date prisa, la oferta termina en</p>
+<div class="text-red-600 font-black text-3xl" id="countdown">10:00</div>
+</div>
+​<button type="submit" id="submitBtn" class="w-full bg-black hover:bg-gray-900 text-white rounded-[1.25rem] py-4 px-4 flex flex-col items-center justify-center transition-transform active:scale-95 shadow-lg btn-sacudon">
+<span class="font-black text-lg md:text-xl mb-0.5 tracking-tight uppercase" id="btn-text-price">COMPLETA TU COMPRA - $99.900,00</span>
+<span class="text-sm font-medium text-gray-300">Paga al recibir!</span>
+</button>
+​<div class="text-center mt-4 flex items-center justify-center gap-2 text-xs text-gray-500 font-medium border-t border-gray-100 pt-4">
+<svg class="w-4 h-4 text-green-500 fill-current" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+<span>Compra 100% Segura. Pago Contra Entrega.</span>
+</div>
+​</form>
+</div>
+</div>
+​<script>
+// ==========================================
+// 🔴 CONFIGURACIÓN DE TU WHATSAPP 🔴
+// ==========================================
+const MI_NUMERO_WHATSAPP = "584169485195";
+​// ==========================================
+// 🔴 GOOGLE SHEETS URL (Procesa Sheets + Telegram) 🔴
+// ==========================================
+const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbyPGycc3dDWtIUBHeOFf3NQO_-LLMEaV3oIJRknTSdxuHPCsvaFW_BIP6md-f728nZ-/exec";
+​const municipiosPorDepartamento = {
+"Amazonas": ["El Encanto", "La Chorrera", "La Pedrera", "La Victoria", "Leticia", "Mirití-Paraná", "Puerto Alegría", "Puerto Arica", "Puerto Nariño", "Puerto Santander", "Tarapacá"],
+"Antioquia": ["Abejorral", "Abriaquí", "Alejandría", "Amagá", "Amalfi", "Andes", "Angelópolis", "Angostura", "Anorí", "Anzá", "Apartadó", "Arboletes", "Argelia", "Armenia", "Barbosa", "Bello", "Belmira", "Betania", "Betulia", "Briceño", "Buriticá", "Cáceres", "Caicedo", "Caldas", "Campamento", "Cañasgordas", "Caracolí", "Caramanta", "Carepa", "Carolina del Príncipe", "Caucasia", "Chigorodó", "Cisneros", "Ciudad Bolívar", "Cocorná", "Concepción", "Concordia", "Copacabana", "Dabeiba", "Donmatías", "Ebéjico", "El Bagre", "El Carmen de Viboral", "El Peñol", "El Retiro", "El Santuario", "Entreríos", "Envigado", "Fredonia", "Giraldo", "Girardota", "Gómez Plata", "Granada", "Guadalupe", "Guarne", "Guatapé", "Heliconia", "Hispania", "Itagüí", "Ituango", "Jardín", "Jericó", "La Ceja", "La Estrella", "La Pintada", "La Unión", "Liborina", "Maceo", "Marinilla", "Medellín", "Montebello", "Murindó", "Mutatá", "Nariño", "Nechí", "Necoclí", "Olaya", "Peque", "Pueblorrico", "Puerto Berrío", "Puerto Nare", "Puerto Triunfo", "Remedios", "Rionegro", "Sabanalarga", "Sabaneta", "Salgar", "San Andrés de Cuerquia", "San Carlos", "San Francisco", "San Jerónimo", "San José de la Montaña", "San Juan de Urabá", "San Luis", "San Pedro de los Milagros", "San Pedro de Urabá", "San Rafael", "San Roque", "San Vicente Ferrer", "Santa Bárbara", "Santa Fe de Antioquia", "Santa Rosa de Osos", "Santo Domingo", "Segovia", "Sonsón", "Sopetrán", "Támesis", "Tarazá", "Tarso", "Titiribí", "Toledo", "Turbo", "Uramita", "Urrao", "Valdivia", "Valparaíso", "Vegachí", "Yalí", "Yarumal", "Yolombó", "Yondó", "Zaragoza"],
+"Arauca": ["Arauca", "Arauquita", "Cravo Norte", "Fortul", "Puerto Rondón", "Saravena", "Tame"],
+"Atlántico": ["Baranoa", "Barranquilla", "Campo de la Cruz", "Candelaria", "Galapa", "Juan de Acosta", "Luruaco", "Malambo", "Manatí", "Palmar de Varela", "Piojó", "Polonuevo", "Ponedera", "Puerto Colombia", "Repelón", "Sabanagrande", "Sabanalarga", "Santa Lucía", "Santo Tomás", "Soledad", "Suan", "Tubará", "Usiacurí"],
+"Bogotá D.C.": ["Bogotá D.C."],
+"Bolívar": ["Achí", "Altos del Rosario", "Arenal", "Arjona", "Arroyohondo", "Barranco de Loba", "Calamar", "Cantagallo", "El Carmen de Bolívar", "Cartagena de Indias", "Cicuco", "Clemencia", "Córdoba", "El Guamo", "El Peñón", "Hatillo de Loba", "Magangué", "Mahates", "Margarita", "María La Baja", "Montecristo", "Mompox", "Morales", "Norosí", "Pinillos", "Río Viejo", "San Cristóbal", "San Estanislao", "San Fernando", "San Jacinto", "San Jacinto del Cauca", "San Juan Nepomuceno", "San Martín de Loba", "San Pablo", "Santa Catalina", "Santa Rosa", "Santa Rosa del Sur", "Simití", "Soplaviento", "Talaigua Nuevo", "Tiquisio", "Turbaco", "Turbaná", "Villanueva"],
+"Boyacá": ["Almeida", "Aquitania", "Arcabuco", "Belén", "Berbeo", "Betéitiva", "Boavita", "Boyacá", "Briceño", "Buenavista", "Busbanzá", "Caldas", "Campohermoso", "Cerinza", "Chinavita", "Chiquinquirá", "Chíquiza", "Chiscas", "Chita", "Chitaraque", "Chivatá", "Chivor", "Ciénega", "Cóombita", "Covarachía", "Cúbitá", "Cucaita", "Cuítiva", "Duitama", "El Cocuy", "El Espino", "Firavitoba", "Floresta", "Gachantivá", "Gámeza", "Garagoa", "Guacamayas", "Guateque", "Guayatá", "Güicán", "Iza", "Jenesano", "Jericó", "Labranzagrande", "La Capilla", "La Victoria", "La Uvita", "Macanal", "Maripí", "Miraflores", "Mongua", "Monguí", "Moniquirá", "Motavita", "Muzo", "Nobsa", "Nuevo Colón", "Oicatá", "Otanche", "Pachavita", "Páez", "Paipa", "Pajarito", "Panqueba", "Pauna", "Paya", "Paz de Río", "Pesca", "Pisba", "Puerto Boyacá", "Quípama", "Ramiriquí", "Rondón", "Saboyá", "Sáchica", "Samacá", "San Eduardo", "San José de Pare", "San Luis de Gaceno", "San Mateo", "San Miguel de Sema", "San Pablo de Borbur", "Santa Sofía", "Santa María", "Santa Rosa de Viterbo", "Santana", "Sativanorte", "Sativasur", "Siachoque", "Soatá", "Socha", "Socotá", "Sogamoso", "Somondoco", "Sora", "Soracá", "Sotaquirá", "Susacón", "Sutamarchán", "Sutatenza", "Tasco", "Tenza", "Tibaná", "Tibasosa", "Tinjacá", "Tipacoque", "Toca", "Togüí", "Tópaga", "Tota", "Tunja", "Tununguá", "Turmequé", "Tuta", "Tutazá", "Úmbita", "Ventaquemada", "Villa de Leyva", "Viracachá", "Zetaquira"],
+"Caldas": ["Aguadas", "Anserma", "Aranzazu", "Belalcázar", "Chinchiná", "Filadelfia", "La Dorada", "La Merced", "Manizales", "Manzanares", "Marmato", "Marquetalia", "Marulanda", "Neira", "Norocasia", "Pácora", "Palestina", "Pensilvania", "Riosucio", "Risaralda", "Salamina", "Samaná", "San José", "Supía", "Victoria", "Villamaría", "Viterbo"],
+"Caquetá": ["Albania", "Belén de los Andaquíes", "Cartagena del Chairá", "Curillo", "El Doncello", "El Paujil", "Florencia", "La Montañita", "Morelia", "Puerto Rico", "Solano", "Solita", "San José del Fragua", "San Vicente del Caguán", "Valparaíso"],
+"Casanare": ["Aguazul", "Chámeza", "Hato Corozal", "La Salina", "Maní", "Monterrey", "Nunchía", "Orocué", "Paz de Ariporo", "Pore", "Recetor", "Sabanalarga", "Sácama", "San Luis de Palenque", "Támara", "Tauramena", "Trinidad", "Villanueva", "Yopal"],
+"Cauca": ["Almaguer", "Argelia", "Balboa", "Bolívar", "Buenos Aires", "Cajibío", "Caldono", "Caloto", "Corinto", "El Tambo", "Florencia", "Guachené", "Guapí", "Inzá", "Jambaló", "La Sierra", "La Vega", "López de Micay", "Mercaderes", "Miranda", "Morales", "Padilla", "Páez", "Piamonte", "Piendamó", "Popayán", "Puerto Tejada", "Puracé", "Rosas", "San Sebastián", "Santander de Quilichao", "Santa Rosa", "Silvia", "Sotará", "Suárez", "Sucre", "Timbío", "Timbiquí", "Toribío", "Totoró", "Villa Rica"],
+"Cesar": ["Aguachica", "Agustín Codazzi", "Astrea", "Becerril", "Bosconia", "Chimichagua", "Chiriguaná", "Curumaní", "El Copey", "El Paso", "Gamarra", "González", "La Gloria", "La Jagua de Ibirico", "La Paz", "Manaure Balcón del Cesar", "Pailitas", "Pelaya", "Pueblo Bello", "Río de Oro", "San Alberto", "San Diego", "San Martín", "Tamalameque", "Valledupar"],
+"Chocó": ["Acandí", "Alto Baudó", "Atrato", "Bagadó", "Bahía Solano", "Bajo Baudó", "Bojayá", "El Cantón de San Pablo", "Cértegui", "Condoto", "El Carmen de Atrato", "El Carmen del Darién", "Istmina", "Juradó", "Litoral del San Juan", "Lloró", "Medio Atrato", "Medio Baudó", "Medio San Juan", "Nóvita", "Nuquí", "Quibdó", "Río Iró", "Río Quito", "Riosucio", "San José del Palmar", "Sipí", "Tadó", "Unuía del Chocó", "Unión Panamericana"],
+"Córdoba": ["Ayapel", "Buenavista", "Canalete", "Cereté", "Chimá", "Chinú", "Ciénaga de Oro", "Cotorra", "La Apartada", "Los Córdobas", "Momil", "Montelíbano", "Montería", "Moñitos", "Planeta Rica", "Pueblo Nuevo", "Puerto Escondido", "Puerto Libertador", "Purísima", "Sahagún", "San Andrés de Sotavento", "San Antero", "San Bernardo del Viento", "San Carlos", "San José de Uré", "San Pelayo", "Santa Cruz de Lorica", "Tierralta", "Tuchín", "Valencia"],
+"Cundinamarca": ["Agua de Dios", "Albán", "Anapoima", "Anolaima", "Apulo", "Arbeláez", "Beltrán", "Bituima", "Bojacá", "Cabrera", "Cachipay", "Cajicá", "Caparrapí", "Cáqueza", "Carmen de Carupa", "Chaguaní", "Chía", "Chipaque", "Choachí", "Chocontá", "Cogua", "Cota", "Cucunubá", "El Colegio", "El Peñón", "El Rosal", "Facatativá", "Fómeque", "Fosca", "Funza", "Fúquene", "Fusagasugá", "Gachalá", "Gachancipá", "Gachetá", "Gama", "Girardot", "Granada", "Guachetá", "Guaduas", "Guasca", "Guataquí", "Guatavita", "Guayabal de Síquima", "Guayabetal", "Gutiérrez", "Jerusalén", "Junín", "La Calera", "La Mesa", "La Palma", "La Peña", "La Vega", "Lenguazaque", "Machetá", "Madrid", "Manta", "Medina", "Mosquera", "Nariño", "Nemocón", "Nilo", "Nimaima", "Nocaima", "Pacho", "Paime", "Pandi", "Paratebueno", "Pasca", "Puerto Salgar", "Pulí", "Quebradanegra", "Quetame", "Quipile", "Ricaurte", "San Antonio del Tequendama", "San Bernardo", "San Cayetano", "San Francisco", "San Juan de Rioseco", "Sasaima", "Sesquilé", "Sibaté", "Silvania", "Simijaca", "Soacha", "Sopó", "Subachoque", "Suesca", "Sutatausa", "Tabio", "Tausa", "Tena", "Tenjo", "Tibacuy", "Tibarita", "Tocaima", "Tocancipá", "Topaipí", "Ubalá", "Ubaque", "Ubaté", "Une", "Útica", "Venecia", "Vergara", "Vianí", "Villagómez", "Villapinzón", "Villeta", "Viotá", "Yacopí", "Zipacón", "Zipaquirá"],
+"Guainía": ["Inírida", "Barrancominas", "Cacahual", "La Guadalupe", "Mapiripana", "Morichal", "Pana Pana", "Puerto Colombia", "San Felipe"],
+"Guaviare": ["Calamar", "El Retorno", "Miraflores", "San José del Guaviare"],
+"Huila": ["Acevedo", "Agrado", "Aipe", "Algeciras", "Altamira", "Baraya", "Campoalegre", "Colombia", "Elías", "Garzón", "Gigante", "Guadalupe", "Hobo", "Íquira", "Isnos", "La Argentina", "La Plata", "Nátaga", "Neiva", "Oporapa", "Paicol", "Palermo", "Palestina", "Pital", "Pitalito", "Rivera", "Saladoblanco", "San Agustín", "Santa María", "Suaza", "Tarqui", "Tello", "Teruel", "Tesalia", "Timaná", "Villavieja", "Yaguará"],
+"La Guajira": ["Albania", "Barrancas", "Dibulla", "Distracción", "El Molino", "Fonseca", "Hatonuevo", "La Jagua del Pilar", "Maicao", "Manaure", "Riohacha", "San Juan del Cesar", "Uribia", "Urumita", "Villanueva"],
+"Magdalena": ["Algarrobo", "Aracataca", "Ariguaní", "Cerro de San Antonio", "Chibolo", "Ciénaga", "Concordia", "El Banco", "El Piñón", "El Retén", "Fundación", "Guamal", "Nueva Granada", "Pedraza", "Pijiño del Carmen", "Pivijay", "Plato", "Puebloviejo", "Remolino", "Sabanas de San Ángel", "Salamina", "Santa Ana", "Santa Bárbara de Pinto", "Santa Marta", "San Zenón", "San Sebastián de Buenavista", "Sitionuevo", "Tenerife", "Zapayán", "Zona Bananera"],
+"Meta": ["Acacías", "Barranca de Upía", "Cabuyaro", "Castilla la Nueva", "Cubarral", "Cumaral", "El Calvario", "El Castillo", "El Dorado", "Fuente de Oro", "Granada", "Guamal", "Mapiripán", "Mesetas", "La Macarena", "Uribe", "Lejanías", "Puerto Concordia", "Puerto Gaitán", "Puerto López", "Puerto Lleras", "Puerto Rico", "Restrepo", "San Carlos de Guaroa", "San Juan de Arama", "San Juanito", "San Martín", "Vistahermosa", "Villavicencio"],
+"Nariño": ["Albán", "Aldana", "Ancuya", "Arboleda", "Barbacoas", "Belén", "Buesaco", "Chachagüí", "Colón", "Consacá", "Contadero", "Córdoba", "Cuaspud", "Cumbal", "Cumbitara", "El Charco", "El Peñol", "El Rosario", "El Tablón de Gómez", "El Tambo", "Francisco Pizarro", "Funes", "Guachucal", "Guaitarilla", "Gualmatán", "Iles", "Imués", "Ipiales", "La Cruz", "La Florida", "La Llanada", "La Tola", "La Unión", "Leiva", "Linares", "Los Andes", "Magüí Payán", "Mallama", "Mosquera", "Nariño", "Olaya Herrera", "Ospina", "Pasto", "Policarpa", "Puerres", "Pupiales", "Ricaurte", "Roberto Payán", "Samaniego", "San Bernardo", "San Lorenzo", "San Pablo", "San Pedro de Cartago", "Sandoná", "Santa Bárbara", "Santacruz", "Sapuyes", "Taminango", "Tangua", "San Andrés de Tumaco", "Túquerres", "Yacuanquer"],
+"Norte de Santander": ["Abrego", "Arboledas", "Bochalema", "Bucarasica", "Cáchira", "Cácota", "Chinácota", "Chitagá", "Convención", "Cúcuta", "Cúcutilla", "Durania", "El Carmen", "El Tarra", "El Zulia", "Gramalote", "Hacarí", "Herrán", "La Esperanza", "La Playa de Belén", "Labateca", "Los Patios", "Lourdes", "Mutiscua", "Ocaña", "Pamplona", "Pamplonita", "Puerto Santander", "Ragonvalia", "Salazar de Las Palmas", "San Calixto", "San Cayetano", "Santiago", "Sardinata", "Silos", "Tibú", "Toledo", "Villa del Rosario"],
+"Putumayo": ["Colón", "Mocoa", "Orito", "Puerto Asís", "Puerto Caicedo", "Puerto Guzmán", "Leguízamo", "Sibundoy", "San Francisco", "San Miguel", "Santiago", "Valle del Guamuez", "Villagarzón"],
+"Quindío": ["Armenia", "Buenavista", "Calarcá", "Circasia", "Córdoba", "Filandia", "Génova", "La Tebaida", "Montenegro", "Pijao", "Quimbaya", "Salento"],
+"Risaralda": ["Apía", "Balboa", "Belén de Umbría", "Dosquebradas", "Guática", "La Celia", "La Virginia", "Marsella", "Mistrató", "Pereira", "Pueblo Rico", "Quinchía", "Santa Rosa de Cabal", "Santuario"],
+"San Andrés y Providencia": ["Providencia y Santa Catalina", "San Andrés"],
+"Santander": ["Aguada", "Albania", "Aratoca", "Barbosa", "Barichara", "Barrancabermeja", "Betulia", "Bolívar", "Bucaramanga", "Cabrera", "California", "Capitanejo", "Carcasí", "Cepitá", "Cerrito", "Charalá", "Charta", "Chima", "Chipatá", "Cimitarra", "Concepción", "Confines", "Contratación", "Coromoro", "Curití", "El Carmen de Chucurí", "El Guacamayo", "El Peñón", "El Playón", "Encino", "Enciso", "Floridablanca", "Florián", "Galán", "Gámbita", "Girón", "Guaca", "Guadalupe", "Guapotá", "Guavatá", "Güepsa", "Hato", "Jesús María", "Jordán", "La Belleza", "La Paz", "Landázuri", "Lebrija", "Los Santos", "Macaravita", "Málaga", "Matanza", "Mogotes", "Molagavita", "Ocamonte", "Oiba", "Onzaga", "Palmar", "Palmas del Socorro", "Piedecuesta", "Pinchote", "Puente Nacional", "Puerto Parra", "Puerto Wilches", "Rionegro", "Sabana de Torres", "San Andrés", "San Benito", "San Gil", "San Joaquín", "San José de Miranda", "San Miguel", "San Vicente de Chucurí", "Santa Bárbara", "Santa Helena del Opón", "Simacota", "Socorro", "Suaita", "Sucre", "Suratá", "Tona", "Valle de San José", "Vélez", "Vetas", "Villanueva", "Zepatoca"],
+"Sucre": ["Buenavista", "Caimito", "Coloso", "Corozal", "Coveñas", "El Roble", "Galeras", "Guaranda", "La Unión", "Los Palmitos", "Majagual", "Morroa", "Ovejas", "Palmito", "Sampués", "San Benito Abad", "San Juan de Betulia", "San Marcos", "San Onofre", "San Pedro", "Sincé", "Sincelejo", "Sucre", "Tolú", "Tolú Viejo"],
+"Tolima": ["Alpujarra", "Alvarado", "Ambalema", "Anzoátegui", "Armero Guayabal", "Ataco", "Cajamarca", "Carmen de Apicalá", "Casabianca", "Chaparral", "Coello", "Coyaima", "Cunday", "Dolores", "Espinal", "Falan", "Fresno", "Guamo", "Herveo", "Honda", "Ibagué", "Icononzo", "Lérida", "Líbano", "Mariquita", "Melgar", "Murillo", "Natagaima", "Ortega", "Palocabildo", "Piedras", "Planadas", "Prado", "Purificación", "Rioblanco", "Roncesvalles", "Rovira", "Saldaña", "San Antonio", "San Luis", "Santa Isabel", "Suárez", "Valle de San Juan", "Villarrica"],
+"Valle del Cauca": ["Alcalá", "Andalucía", "Ansermanuevo", "Argelia", "Bolívar", "Buenaventura", "Buga", "Bugalagrande", "Caicedonia", "Cali", "Calima - El Darién", "Candelaria", "Cartago", "Dagua", "El Águila", "El Cairo", "El Cerrito", "El Dovio", "Florida", "Ginebra", "Guacarí", "Jamundí", "La Cumbre", "La Unión", "La Victoria", "Obando", "Palmira", "Pradera", "Restrepo", "Riofrío", "Roldanillo", "San Pedro", "Sevilla", "Toro", "Trujillo", "Tuluá", "Ulloa", "Versalles", "Vijes", "Yotoco", "Yumbo", "Zarzal"],
+"Vaupés": ["Carurú", "Mitú", "Pacoa", "Papunahua", "Taraira", "Yavaraté"],
+"Vichada": ["Cumaribo", "La Primavera", "Puerto Carreño", "Santa Rosalía"]
+};
+​const deptoSelect = document.getElementById('departamento');
+const ciudadSelect = document.getElementById('ciudad');
+​function inicializarUbicaciones() {
+deptoSelect.innerHTML = '<option value="" disabled selected>Selecciona Departamento</option>';
+Object.keys(municipiosPorDepartamento).sort().forEach(depto => {
+const opt = document.createElement('option');
+opt.value = depto;
+opt.textContent = depto;
+deptoSelect.appendChild(opt);
+});
+}
+​deptoSelect.addEventListener('change', function() {
+const deptoSeleccionado = this.value;
+const ciudades = municipiosPorDepartamento[deptoSeleccionado] || [];
+​ciudadSelect.innerHTML = '<option value="" disabled selected>Selecciona Ciudad / Municipio</option>';
+​ciudades.sort().forEach(ciudad => {
+const opt = document.createElement('option');
+opt.value = ciudad;
+opt.textContent = ciudad;
+ciudadSelect.appendChild(opt);
+});
+ciudadSelect.disabled = false;
+});
+​inicializarUbicaciones();
+​const productos = {
+'1_par': { name: 'Waterjetpro 1 unidad', price: 99900 },
+'2_pares': { name: 'Waterjetpro 2 unidades', price: 159840 },
+'3_pares': { name: 'Waterjetpro 3 unidades', price: 209790 }
+};
+​function formatPrice(number) {
+let parts = number.toFixed(2).split(".");
+parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+return "$" + parts.join(",");
+}
+​const radioButtons = document.querySelectorAll('.product-radio');
+const elSubtotal = document.getElementById('summary-subtotal');
+const elTotal = document.getElementById('summary-total');
+const elBtnText = document.getElementById('btn-text-price');
+const form = document.getElementById('checkoutForm');
+let currentSelectedValue = '1_par';
+​let descuentoAplicado = false;
+const VALOR_DESCUENTO = 4000;
+let modalMostrado = false;
+​const downsellModal = document.getElementById('downsellModal');
+const downsellContent = document.getElementById('downsellContent');
+const summaryDiscountRow = document.getElementById('summary-discount-row');
+​function mostrarDownsell() {
+if (!descuentoAplicado && !modalMostrado) {
+downsellModal.classList.remove('hidden');
+setTimeout(() => {
+downsellContent.classList.remove('scale-95');
+downsellContent.classList.add('scale-100');
+}, 10);
+modalMostrado = true;
+}
+}
+​function ocultarDownsell() {
+downsellContent.classList.remove('scale-100');
+downsellContent.classList.add('scale-95');
+setTimeout(() => {
+downsellModal.classList.add('hidden');
+}, 300);
+}
+​document.getElementById('btn-cerrar-checkout').addEventListener('click', mostrarDownsell);
+document.addEventListener('mouseleave', (e) => {
+if (e.clientY < 0) mostrarDownsell();
+});
+​document.getElementById('btn-decline-discount').addEventListener('click', ocultarDownsell);
+document.getElementById('btn-accept-discount').addEventListener('click', () => {
+descuentoAplicado = true;
+actualizarPreciosUI();
+ocultarDownsell();
+document.getElementById('nombre').focus();
+});
+​function actualizarPreciosUI() {
+const priceInfo = productos[currentSelectedValue];
+let subtotal = priceInfo.price;
+let total = subtotal;
+​elSubtotal.textContent = formatPrice(subtotal);
+​if (descuentoAplicado) {
+total = subtotal - VALOR_DESCUENTO;
+summaryDiscountRow.classList.remove('hidden');
+summaryDiscountRow.classList.add('flex');
+} else {
+summaryDiscountRow.classList.add('hidden');
+summaryDiscountRow.classList.remove('flex');
+}
+​elTotal.textContent = formatPrice(total);
+elBtnText.textContent = COMPLETA TU COMPRA - ${formatPrice(total)};
+}
+​radioButtons.forEach(radio => {
+radio.addEventListener('change', function(e) {
+if(this.checked) {
+currentSelectedValue = this.value;
+actualizarPreciosUI();
+}
+});
+});
+​let timeInSeconds = 10 * 60;
+const countdownEl = document.getElementById('countdown');
+​function updateCountdown() {
+const minutes = Math.floor(timeInSeconds / 60);
+let seconds = timeInSeconds % 60;
+seconds = seconds < 10 ? '0' + seconds : seconds;
+let displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+countdownEl.textContent = ${displayMinutes}:${seconds};
+if (timeInSeconds > 0) timeInSeconds--;
+else countdownEl.textContent = "00:00";
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+​// ENVÍO DE DATOS
+form.addEventListener('submit', async function(e) {
+e.preventDefault();
+​const nombre = document.getElementById('nombre').value.trim();
+const celular = document.getElementById('celular').value.trim();
+const direccion = document.getElementById('direccion').value.trim();
+const referencia = document.getElementById('referencia').value.trim();
+const departamento = deptoSelect.options[deptoSelect.selectedIndex]?.text || '';
+const ciudad = ciudadSelect.options[ciudadSelect.selectedIndex]?.text || '';
+​const productoSeleccionado = productos[currentSelectedValue];
+​let precioFinalCalculado = productoSeleccionado.price;
+if (descuentoAplicado) precioFinalCalculado -= VALOR_DESCUENTO;
+const precioTotalTexto = formatPrice(precioFinalCalculado);
+​const fechaActual = new Date();
+const orderData = {
+fecha: fechaActual.toLocaleDateString() + ' ' + fechaActual.toLocaleTimeString(),
+nombre: nombre,
+celular: celular,
+direccion: direccion,
+referencia: referencia,
+ciudad: ciudad,
+departamento: departamento,
+producto: productoSeleccionado.name,
+descuento: descuentoAplicado ? "Sí (-$4.000)" : "No",
+precioTotal: precioTotalTexto
+};
+​const btnOriginalText = elBtnText.textContent;
+elBtnText.textContent = "PROCESANDO PEDIDO...";
+​// Enviar datos al Apps Script (este guarda en Sheet Y envía el mensaje a Telegram)
+if(GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL !== "AQUI_PEGAS_TU_URL") {
+try {
+await fetch(GOOGLE_SHEETS_URL, {
+method: 'POST',
+mode: 'no-cors',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(orderData),
+keepalive: true
+});
+} catch (err) {
+console.log("Error al procesar pedido", err);
+}
+}
+​// Construir mensaje WhatsApp
+let mensaje = 🚨 *NUEVO PEDIDO (PAGO CONTRA ENTREGA)* 🚨\n\n;
+mensaje += 📦 *Producto:* ${productoSeleccionado.name}\n;
+if (descuentoAplicado) mensaje += 🎁 *DESCUENTO APLICADO:* -$4.000\n;
+mensaje += 💰 *Total a cobrar:* ${precioTotalTexto}\n\n;
+mensaje += 👤 *Datos del Cliente:*\n;
+mensaje += *Nombre:* ${nombre}\n;
+mensaje += *Celular:* ${celular}\n;
+mensaje += *Dirección:* ${direccion}\n;
+mensaje += *Barrio/Ref:* ${referencia}\n;
+mensaje += *Ciudad:* ${ciudad}\n;
+mensaje += *Departamento:* ${departamento}\n\n;
+mensaje += ✅ _Cliente comprometido a recibir._;
+​const textEncoded = encodeURIComponent(mensaje);
+const whatsappUrl = https://api.whatsapp.com/send?phone=${MI_NUMERO_WHATSAPP}&text=${textEncoded};
+​window.location.href = whatsappUrl;
+elBtnText.textContent = btnOriginalText;
+});
+</script>
 </body>
 </html>
