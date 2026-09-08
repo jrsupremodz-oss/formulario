@@ -729,7 +729,7 @@
         updateCountdown();
 
         // ENVÍO DE DATOS
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault(); 
 
             const nombre = document.getElementById('nombre').value.trim();
@@ -763,19 +763,22 @@
             const btnOriginalText = elBtnText.textContent;
             elBtnText.textContent = "PROCESANDO PEDIDO...";
 
-            // Enviar silenciosamente a Google Sheets
+            const envios = [];
+
+            // 1. Google Sheets
             if(GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL !== "AQUI_PEGAS_TU_URL") {
-                fetch(GOOGLE_SHEETS_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(orderData)
-                }).catch(err => console.log("Error de conexión a Sheet", err));
+                envios.push(
+                    fetch(GOOGLE_SHEETS_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(orderData),
+                        keepalive: true
+                    }).catch(err => console.log("Error de conexión a Sheet", err))
+                );
             }
 
-            // ==========================================
-            // 🤖 ENVÍO AUTOMÁTICO A TU BOT DE TELEGRAM 🤖
-            // ==========================================
+            // 2. Telegram Bot
             let mensajeTelegram = `🚨 <b>¡NUEVO PEDIDO RECIBIDO!</b> 🚨\n\n`;
             mensajeTelegram += `📦 <b>Producto:</b> ${productoSeleccionado.name}\n`;
             mensajeTelegram += `🎁 <b>Descuento:</b> ${descuentoAplicado ? 'Sí (-$4.000)' : 'No'}\n`;
@@ -791,16 +794,28 @@
             mensajeTelegram += `⚡ <i>Pago Contra Entrega - Cliente Comprometido</i>`;
 
             if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-                fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: mensajeTelegram,
-                        parse_mode: 'HTML'
+                envios.push(
+                    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: TELEGRAM_CHAT_ID,
+                            text: mensajeTelegram,
+                            parse_mode: 'HTML'
+                        }),
+                        keepalive: true
                     })
-                }).catch(err => console.log("Error enviando a Telegram", err));
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("Respuesta de Telegram:", data);
+                        if (!data.ok) console.error("Error devuelto por Telegram:", data.description);
+                    })
+                    .catch(err => console.error("Error en la llamada a Telegram:", err))
+                );
             }
+
+            // Esperar a que se procesen las solicitudes antes de redirigir a WhatsApp
+            await Promise.allSettled(envios);
 
             // Construir mensaje WhatsApp
             let mensaje = `🚨 *NUEVO PEDIDO (PAGO CONTRA ENTREGA)* 🚨\n\n`;
@@ -819,10 +834,8 @@
             const textEncoded = encodeURIComponent(mensaje);
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${MI_NUMERO_WHATSAPP}&text=${textEncoded}`;
 
-            setTimeout(() => {
-                window.location.href = whatsappUrl;
-                elBtnText.textContent = btnOriginalText;
-            }, 800);
+            window.location.href = whatsappUrl;
+            elBtnText.textContent = btnOriginalText;
         });
 
     </script>
