@@ -115,7 +115,7 @@
         </button>
 
         <div class="p-5 sm:p-6 pb-8">
-            <!-- Encabezado con padding lateral -->
+            <!-- Encabezado -->
             <div class="text-center mb-6 pt-1 px-8">
                 <h1 class="text-xl font-extrabold text-black uppercase tracking-tight mb-2">
                     POCAS UNIDADES DISPONIBLES! <span class="text-xl">🔥</span>
@@ -336,7 +336,7 @@
         const MI_NUMERO_WHATSAPP = "584169485195"; 
         
         // ==========================================
-        // 🔴 CONFIGURACIÓN DE TELEGRAM BOT (FRAGMENTADA PARA GITHUB) 🔴
+        // 🔴 CONFIGURACIÓN DE TELEGRAM BOT 🔴
         // ==========================================
         const _p1 = "8683366249";
         const _p2 = ":AAGOU47F";
@@ -752,6 +752,18 @@
             if (descuentoAplicado) precioFinalCalculado -= VALOR_DESCUENTO;
             const precioTotalTexto = formatPrice(precioFinalCalculado);
 
+            // 🎯 REGISTRO DEL EVENTO PURCHASE EN META PIXEL
+            // Se ejecuta SOLAMENTE cuando el formulario pasa la validación HTML5
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', {
+                    value: precioFinalCalculado,
+                    currency: 'COP',
+                    content_name: productoSeleccionado.name,
+                    content_ids: [currentSelectedValue],
+                    content_type: 'product'
+                });
+            }
+
             // Objeto de datos para Google Sheets
             const fechaActual = new Date();
             const orderData = {
@@ -821,7 +833,7 @@
                 );
             }
 
-            // Esperar a que se procesen las solicitudes antes de redirigir a WhatsApp
+            // Esperar a que se procesen las solicitudes (esto le da tiempo al Pixel de enviar el beacon antes de cambiar de página)
             await Promise.allSettled(envios);
 
             // Construir mensaje WhatsApp
