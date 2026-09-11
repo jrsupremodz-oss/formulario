@@ -57,7 +57,10 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    
     fbq('init', '1196814618515553');
+    // Desactivar detección automática de botones/clics para evitar SubscribedButtonClick cuando el form no se llena
+    fbq('set', 'autoConfig', false, '1196814618515553'); 
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -752,9 +755,16 @@
             if (descuentoAplicado) precioFinalCalculado -= VALOR_DESCUENTO;
             const precioTotalTexto = formatPrice(precioFinalCalculado);
 
-            // 🎯 REGISTRO DEL EVENTO PURCHASE EN META PIXEL
-            // Se ejecuta SOLAMENTE cuando el formulario pasa la validación HTML5
+            // 🎯 REGISTRO DEL EVENTO PURCHASE EN META PIXEL (Con Advanced Matching de Teléfono y Nombre)
             if (typeof fbq === 'function') {
+                const cleanPhone = celular.replace(/\D/g, '');
+                
+                // Actualizamos init con datos del usuario para mejorar la atribución con los anuncios
+                fbq('init', '1196814618515553', {
+                    ph: cleanPhone,
+                    fn: nombre.toLowerCase()
+                });
+
                 fbq('track', 'Purchase', {
                     value: precioFinalCalculado,
                     currency: 'COP',
@@ -833,8 +843,11 @@
                 );
             }
 
-            // Esperar a que se procesen las solicitudes (esto le da tiempo al Pixel de enviar el beacon antes de cambiar de página)
+            // Esperar las peticiones de Google Sheets / Telegram
             await Promise.allSettled(envios);
+
+            // ⏳ Pausa de 1 segundo para garantizar que el Píxel de Meta complete el envío
+            await new Promise(resolve => setTimeout(resolve, 1000));
 
             // Construir mensaje WhatsApp
             let mensaje = `🚨 *NUEVO PEDIDO (PAGO CONTRA ENTREGA)* 🚨\n\n`;
