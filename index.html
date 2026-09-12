@@ -765,17 +765,16 @@
                     fn: nombre.toLowerCase()
                 });
 
-                / 1. Tomamos tu variable dinámica (que ya incluye la cantidad elegida y el descuento)
-let valorParaMeta = Number(precioFinalCalculado);
+               // 1. Asegurarnos de que el precio sea un número válido y limpiar cualquier texto si lo hubiera
+let valorParaMeta = parseFloat(precioFinalCalculado);
 
-// 2. Validación de seguridad: Si por algún error técnico la variable llega rota (NaN o 0),
-// le asignamos el precio de 1 unidad SOLO como salvavidas para que Meta no marque error.
-// En el 83% de los casos normales, esto se ignorará y pasará el precio dinámico real (ej. 159840).
-if (!valorParaMeta || isNaN(valorParaMeta) || valorParaMeta <= 0) {
+// 2. Validar que sea un número mayor a 0. Si falla (NaN o 0), asignamos un valor de respaldo para no perder el trackeo.
+if (isNaN(valorParaMeta) || valorParaMeta <= 0) {
+    // Puedes poner el precio base de tu producto como respaldo por si falla la variable
     valorParaMeta = 99900; 
 }
 
-// 3. Enviamos el evento dinámico y protegido a Meta
+// 3. Enviar el evento con el valor corregido
 fbq('track', 'Purchase', {
     value: valorParaMeta,
     currency: 'COP',
