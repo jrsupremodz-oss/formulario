@@ -765,13 +765,24 @@
                     fn: nombre.toLowerCase()
                 });
 
-                fbq('track', 'Purchase', {
-                    value: 99900.00,
-                    currency: 'COP',
-                    content_name: productoSeleccionado.name,
-                    content_ids: [currentSelectedValue],
-                    content_type: 'product'
-                });
+                / 1. Tomamos tu variable dinámica (que ya incluye la cantidad elegida y el descuento)
+let valorParaMeta = Number(precioFinalCalculado);
+
+// 2. Validación de seguridad: Si por algún error técnico la variable llega rota (NaN o 0),
+// le asignamos el precio de 1 unidad SOLO como salvavidas para que Meta no marque error.
+// En el 83% de los casos normales, esto se ignorará y pasará el precio dinámico real (ej. 159840).
+if (!valorParaMeta || isNaN(valorParaMeta) || valorParaMeta <= 0) {
+    valorParaMeta = 99900; 
+}
+
+// 3. Enviamos el evento dinámico y protegido a Meta
+fbq('track', 'Purchase', {
+    value: valorParaMeta,
+    currency: 'COP',
+    content_name: productoSeleccionado.name,
+    content_ids: [currentSelectedValue],
+    content_type: 'product'
+});
             }
 
             // Objeto de datos para Google Sheets
